@@ -6,6 +6,7 @@
     <title>Portofolio Max Faisal Bahreizy</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -318,17 +319,48 @@
         }
 
         footer {
-            background: #1c1c1c;
-            padding: 25px;
+            background: linear-gradient(180deg, #1c1c1c, #141414);
+            padding: 40px 20px;
             text-align: center;
             font-size: 14px;
             color: #bbb;
-            border-top: 1px solid rgba(240, 193, 75, 0.2);
+            border-top: 1px solid rgba(240, 193, 75, 0.3);
         }
 
-        footer p {
-            font-weight: 300;
+        .footer-content {
+            max-width: 90%;
+            margin: 0 auto;
+        }
+
+        .footer-tagline {
+            font-size: 16px;
+            font-weight: 400;
+            color: #f0c14b;
+            margin-bottom: 15px;
             letter-spacing: 0.5px;
+        }
+
+        .footer-social {
+            margin-bottom: 20px;
+        }
+
+        .footer-social a {
+            color: #bbb;
+            font-size: 20px;
+            margin: 0 12px;
+            text-decoration: none;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        .footer-social a:hover {
+            color: #f0c14b;
+            transform: translateY(-4px);
+        }
+
+        .footer-copyright {
+            font-size: 13px;
+            font-weight: 300;
+            color: #999;
         }
 
         @media (min-width: 768px) {
@@ -397,6 +429,31 @@
             .project-card p {
                 font-size: 15px;
             }
+
+            footer {
+                padding: 50px 20px;
+            }
+
+            .footer-content {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                max-width: 800px;
+                text-align: left;
+            }
+
+            .footer-tagline {
+                font-size: 18px;
+                margin-bottom: 0;
+            }
+
+            .footer-social {
+                margin-bottom: 0;
+            }
+
+            .footer-copyright {
+                text-align: right;
+            }
         }
     </style>
 </head>
@@ -452,8 +509,8 @@
 
     <section id="skills" data-aos="fade-up">
         <h2>Keahlian</h2>
-        <div class="skills-grid">
-            <div class="skill-item" data-aos="zoom-in" data-aos-delay="100">HTML5</div>
+        <div/prod="zoom-in">
+            <div class="skill-item" data-aos="5" data-aos-delay="100">HTML5</div>
             <div class="skill-item" data-aos="zoom-in" data-aos-delay="200">CSS3</div>
             <div class="skill-item" data-aos="zoom-in" data-aos-delay="300">JavaScript</div>
             <div class="skill-item" data-aos="zoom-in" data-aos-delay="400">React.js</div>
@@ -465,15 +522,15 @@
     <section id="projects" data-aos="fade-up">
         <h2>Proyek</h2>
         <div class="projects-grid">
-            <div class="project-card" data-aos="flip-left" data-aos-delay="100">
+            <div class="project-card" data-aos="flip-right" data-aos-delay="100">
                 <h3>Platform E-Commerce</h3>
                 <p>Situs belanja online modern dengan React, Node.js, dan integrasi pembayaran aman.</p>
             </div>
-            <div class="project-card" data-aos="flip-left" data-aos-delay="200">
+            <div class="project-card" data-aos="flip-right" data-aos-delay="200">
                 <h3>Portofolio Digital</h3>
                 <p>Portofolio pribadi interaktif dengan desain responsif menggunakan HTML, CSS, dan JS.</p>
             </div>
-            <div class="project-card" data-aos="flip-left" data-aos-delay="300">
+            <div class="project-card" data-aos="flip-right" data-aos-delay="300">
                 <h3>Aplikasi Manajemen Tugas</h3>
                 <p>Aplikasi to-do list dengan fitur CRUD, dibangun dengan JavaScript murni.</p>
             </div>
@@ -490,7 +547,15 @@
     </section>
 
     <footer data-aos="fade-up" data-aos-once="true">
-        <p>© 2025 Max Faisal Bahreizy. All Rights Reserved.</p>
+        <div class="footer-content">
+            <div class="footer-tagline">Max Faisal Bahreizy - Innovating the Digital Future</div>
+            <div class="footer-social">
+                <a href="https://linkedin.com/in/maxfaisal" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/maxfaisal" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://instagram.com/maxfaisal" target="_blank"><i class="fab fa-instagram"></i></a>
+            </div>
+            <div class="footer-copyright">© 2025 Max Faisal Bahreizy. All Rights Reserved.</div>
+        </div>
     </footer>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>

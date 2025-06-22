@@ -3,25 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portofolio Futuristik 2025</title>
+    <title>Portofolio Max Faisal Bahreizy</title>
     <!-- AOS CSS CDN -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <!-- Google Fonts untuk Tipografi Modern -->
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <!-- Google Fonts untuk Tipografi Colorful -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Quicksand', sans-serif;
             scroll-behavior: smooth;
         }
 
         body {
-            background-color: #0a0a0a;
-            color: #fff;
+            background-color: #f5f7fa;
+            color: #2d3436;
             line-height: 1.6;
-            overflow-x: hidden;
         }
 
         /* Navbar */
@@ -29,15 +28,14 @@
             position: fixed;
             top: 0;
             width: 100%;
-            background: rgba(20, 20, 20, 0.7);
-            backdrop-filter: blur(10px);
+            background: linear-gradient(45deg, #ff6b6b, #ff8e53);
             padding: 15px 0;
             z-index: 1000;
             transition: background 0.3s ease;
         }
 
         .navbar.scrolled {
-            background: rgba(20, 20, 20, 0.9);
+            background: linear-gradient(45deg, #ff4757, #ff6348);
         }
 
         .navbar .container {
@@ -50,17 +48,17 @@
         }
 
         .navbar .logo {
-            font-family: 'Orbitron', sans-serif;
+            font-family: 'Montserrat', sans-serif;
             font-size: 1.8rem;
-            color: #00ffcc;
-            text-transform: uppercase;
+            color: #fff;
+            font-weight: 700;
         }
 
         .navbar a {
             color: #fff;
             text-decoration: none;
             margin: 0 15px;
-            font-size: 1rem;
+            font-size: 1.1rem;
             position: relative;
             transition: color 0.3s ease;
         }
@@ -70,7 +68,7 @@
             position: absolute;
             width: 0;
             height: 2px;
-            background: #00ffcc;
+            background: #fff;
             bottom: -5px;
             left: 0;
             transition: width 0.3s ease;
@@ -81,7 +79,7 @@
         }
 
         .navbar a:hover {
-            color: #00ffcc;
+            color: #ffeaa7;
         }
 
         /* Hero Section */
@@ -90,7 +88,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            background: url('https://images.unsplash.com/photo-1620121478247-ec786b15d65b?auto=format&fit=crop&w=1920&q=80') no-repeat center/cover;
+            background: url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1920&q=80') no-repeat center/cover;
             position: relative;
             text-align: center;
             padding: 0 20px;
@@ -103,7 +101,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.6);
+            background: rgba(255, 255, 255, 0.3);
             z-index: 1;
         }
 
@@ -113,10 +111,10 @@
         }
 
         .hero h1 {
-            font-family: 'Orbitron', sans-serif;
+            font-family: 'Montserrat', sans-serif;
             font-size: 4rem;
-            color: #00ffcc;
-            text-shadow: 0 0 10px rgba(0, 255, 204, 0.5);
+            color: #ff4757;
+            text-shadow: 0 0 10px rgba(255, 71, 87, 0.3);
             margin-bottom: 20px;
         }
 
@@ -124,14 +122,14 @@
             font-size: 1.3rem;
             max-width: 600px;
             margin: 0 auto 30px;
-            color: #ccc;
+            color: #2d3436;
         }
 
         .cta-button {
             display: inline-block;
             padding: 15px 40px;
-            background: linear-gradient(45deg, #00ffcc, #ff00cc);
-            color: #000;
+            background: linear-gradient(45deg, #54a0ff, #00ddeb);
+            color: #fff;
             font-weight: 600;
             text-decoration: none;
             border-radius: 50px;
@@ -141,7 +139,7 @@
 
         .cta-button:hover {
             transform: translateY(-5px);
-            box-shadow: 0 0 20px rgba(0, 255, 204, 0.5);
+            box-shadow: 0 0 20px rgba(84, 160, 255, 0.5);
         }
 
         /* About Section */
@@ -150,18 +148,15 @@
             max-width: 1200px;
             margin: 0 auto;
             text-align: center;
-            background: rgba(255, 255, 255, 0.05);
+            background: #fff;
             border-radius: 20px;
-            backdrop-filter: blur(10px);
-            margin-top: -50px;
-            position: relative;
-            z-index: 2;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
         }
 
         .about h2 {
-            font-family: 'Orbitron', sans-serif;
+            font-family: 'Montserrat', sans-serif;
             font-size: 2.8rem;
-            color: #00ffcc;
+            color: #ff4757;
             margin-bottom: 20px;
         }
 
@@ -169,44 +164,85 @@
             max-width: 800px;
             margin: 0 auto;
             font-size: 1.1rem;
-            color: #ccc;
+            color: #636e72;
+        }
+
+        /* Skills Section */
+        .skills {
+            padding: 100px 20px;
+            background: linear-gradient(135deg, #a29bfe, #74b9ff);
+        }
+
+        .skills h2 {
+            text-align: center;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.8rem;
+            color: #fff;
+            margin-bottom: 40px;
+        }
+
+        .skill-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .skill-card {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .skill-card h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.5rem;
+            color: #ff4757;
+            margin-bottom: 10px;
         }
 
         /* Projects Section */
         .projects {
             padding: 100px 20px;
-            background: #0a0a0a;
+            background: #f5f7fa;
         }
 
         .projects h2 {
             text-align: center;
-            font-family: 'Orbitron', sans-serif;
+            font-family: 'Montserrat', sans-serif;
             font-size: 2.8rem;
-            color: #00ffcc;
+            color: #ff4757;
             margin-bottom: 40px;
         }
 
         .project-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
             max-width: 1200px;
             margin: 0 auto;
         }
 
         .project-card {
-            background: rgba(255, 255, 255, 0.1);
+            background: #fff;
             border-radius: 15px;
             overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s, box-shadow 0.3s;
             cursor: pointer;
-            backdrop-filter: blur(5px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
         }
 
         .project-card img {
             width: 100%;
-            height: 220px;
+            height: 200px;
             object-fit: cover;
             transition: transform 0.5s ease;
         }
@@ -217,33 +253,33 @@
 
         .project-card h3 {
             padding: 15px;
-            font-family: 'Orbitron', sans-serif;
+            font-family: 'Montserrat', sans-serif;
             font-size: 1.5rem;
-            color: #00ffcc;
+            color: #ff4757;
         }
 
         .project-card p {
             padding: 0 15px 20px;
             font-size: 1rem;
-            color: #ccc;
+            color: #636e72;
         }
 
         .project-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 0 20px rgba(0, 255, 204, 0.3);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
         }
 
         /* Contact Section */
         .contact {
             padding: 100px 20px;
             text-align: center;
-            background: linear-gradient(135deg, #1a1a1a, #0a0a0a);
+            background: linear-gradient(135deg, #00ddeb, #54a0ff);
         }
 
         .contact h2 {
-            font-family: 'Orbitron', sans-serif;
+            font-family: 'Montserrat', sans-serif;
             font-size: 2.8rem;
-            color: #00ffcc;
+            color: #fff;
             margin-bottom: 20px;
         }
 
@@ -257,24 +293,23 @@
 
         .contact input, .contact textarea {
             padding: 15px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            border: none;
             border-radius: 10px;
             font-size: 1rem;
-            background: rgba(255, 255, 255, 0.05);
-            color: #fff;
-            backdrop-filter: blur(5px);
-            transition: border-color 0.3s ease;
+            background: rgba(255, 255, 255, 0.9);
+            color: #2d3436;
+            transition: box-shadow 0.3s ease;
         }
 
         .contact input:focus, .contact textarea:focus {
-            border-color: #00ffcc;
+            box-shadow: 0 0 10px rgba(84, 160, 255, 0.5);
             outline: none;
         }
 
         .contact button {
             padding: 15px;
-            background: linear-gradient(45deg, #00ffcc, #ff00cc);
-            color: #000;
+            background: linear-gradient(45deg, #ff4757, #ff8e53);
+            color: #fff;
             font-weight: 600;
             border: none;
             border-radius: 10px;
@@ -285,16 +320,19 @@
 
         .contact button:hover {
             transform: translateY(-5px);
-            box-shadow: 0 0 20px rgba(0, 255, 204, 0.5);
+            box-shadow: 0 0 20px rgba(255, 71, 87, 0.5);
         }
 
         /* Footer */
         footer {
-            background: #0a0a0a;
-            color: #ccc;
+            background: #2d3436;
+            color: #dfe6e9;
             text-align: center;
             padding: 20px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        footer p {
+            font-size: 1rem;
         }
 
         /* Responsive Design */
@@ -308,8 +346,25 @@
                 margin: 0 10px;
             }
 
-            .about h2, .projects h2, .contact h2 {
+            .about h2, .skills h2, .projects h2, .contact h2 {
                 font-size: 2rem;
+            }
+        }
+
+        /* Ripple Effect untuk Micro-interaction */
+        .ripple {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            transform: scale(0);
+            animation: ripple-effect 0.6s linear;
+            pointer-events: none;
+        }
+
+        @keyframes ripple-effect {
+            to {
+                transform: scale(4);
+                opacity: 0;
             }
         }
     </style>
@@ -318,10 +373,11 @@
     <!-- Navbar -->
     <nav class="navbar">
         <div class="container">
-            <div class="logo">FUTUREFOLIO</div>
+            <div class="logo">Max Faisal Bahreizy</div>
             <div>
                 <a href="#home">Beranda</a>
                 <a href="#about">Tentang</a>
+                <a href="#skills">Keahlian</a>
                 <a href="#projects">Proyek</a>
                 <a href="#contact">Kontak</a>
             </div>
@@ -331,36 +387,55 @@
     <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="hero-content" data-aos="fade-up" data-aos-duration="1200">
-            <h1>Portofolio Futuristik 2025</h1>
-            <p>Menghadirkan inovasi digital dengan desain modern dan teknologi terkini.</p>
-            <a href="#contact" class="cta-button">Jelajahi Sekarang</a>
+            <h1>Hai, Saya Max Faisal Bahreizy!</h1>
+            <p>Keren, kreatif, dan siap membawa ide Anda ke level berikutnya dengan desain dan teknologi modern.</p>
+            <a href="#contact" class="cta-button">Ayo Kolaborasi!</a>
         </div>
     </section>
 
     <!-- About Section -->
-    <section id="about" class="about" data-aos="slide-up" data-aos-duration="1000">
+    <section id="about" class="about" data-aos="fade-up" data-aos-duration="1000">
         <h2>Tentang Saya</h2>
-        <p>Saya adalah seorang visioner digital dengan keahlian di pengembangan web, desain UI/UX, dan teknologi AR/VR. Dengan pengalaman lebih dari 7 tahun, saya menciptakan pengalaman interaktif yang memadukan estetika dan fungsi untuk masa depan.</p>
+        <p>Saya Max Faisal Bahreizy, seorang desainer dan pengembang web berusia 25 tahun yang berbasis di Indonesia. Dengan passion di UI/UX dan pengembangan front-end, saya menciptakan pengalaman digital yang colorful dan user-friendly. Yuk, wujudkan visi Anda bersama saya!</p>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <h2 data-aos="fade-up" data-aos-duration="1000">Keahlian Saya</h2>
+        <div class="skill-grid">
+            <div class="skill-card" data-aos="zoom-in" data-aos-duration="1000">
+                <h3>UI/UX Design</h3>
+            </div>
+            <div class="skill-card" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="200">
+                <h3>Front-End Dev</h3>
+            </div>
+            <div class="skill-card" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="400">
+                <h3>Graphic Design</h3>
+            </div>
+            <div class="skill-card" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="600">
+                <h3>Prototyping</h3>
+            </div>
+        </div>
     </section>
 
     <!-- Projects Section -->
     <section id="projects" class="projects">
-        <h2 data-aos="fade-up" data-aos-duration="1000">Proyek Unggulan</h2>
+        <h2 data-aos="fade-up" data-aos-duration="1000">Proyek Saya</h2>
         <div class="project-grid">
-            <div class="project-card" data-aos="zoom-in" data-aos-duration="1000">
-                <img src="https://via.placeholder.com/320x220?text=Proyek+1" alt="Proyek 1">
-                <h3>Proyek AR Interaktif</h3>
-                <p>Aplikasi augmented reality untuk pengalaman belanja yang imersif.</p>
+            <div class="project-card" data-aos="flip-left" data-aos-duration="1000">
+                <img src="https://via.placeholder.com/300x200?text=Proyek+1" alt="Proyek 1">
+                <h3>Website E-Commerce</h3>
+                <p>Desain website toko online yang colorful dan responsif untuk brand fashion lokal.</p>
             </div>
-            <div class="project-card" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="200">
-                <img src="https://via.placeholder.com/320x220?text=Proyek+2" alt="Proyek 2">
-                <h3>Web 3.0 Platform</h3>
-                <p>Platform terdesentralisasi berbasis blockchain untuk komunitas global.</p>
+            <div class="project-card" data-aos="flip-left" data-aos-duration="1000" data-aos-delay="200">
+                <img src="https://via.placeholder.com/300x200?text=Proyek+2" alt="Proyek 2">
+                <h3>Aplikasi Mobile UI</h3>
+                <p>Prototipe UI untuk aplikasi pemesanan makanan dengan tema playful.</p>
             </div>
-            <div class="project-card" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="400">
-                <img src="https://via.placeholder.com/320x220?text=Proyek+3" alt="Proyek 3">
-                <h3>AI-Driven Dashboard</h3>
-                <p>Dashboard analitik cerdas dengan integrasi AI untuk pengambilan keputusan.</p>
+            <div class="project-card" data-aos="flip-left" data-aos-duration="1000" data-aos-delay="400">
+                <img src="https://via.placeholder.com/300x200?text=Proyek+3" alt="Proyek 3">
+                <h3>Branding Kit</h3>
+                <p>Paket branding lengkap termasuk logo dan desain media sosial untuk startup.</p>
             </div>
         </div>
     </section>
@@ -377,8 +452,8 @@
     </section>
 
     <!-- Footer -->
-    <footer data-aos="fade-up" data-aos-duration="1000">
-        <p>© 2025 FUTUREFOLIO. Dibuat untuk masa depan.</p>
+    <footer data-aos="fade-up" data-aos-duration="1000" data-aos-once="true">
+        <p>© 2025 Max Faisal Bahreizy. Dibuat dengan semangat dan kreativitas.</p>
     </footer>
 
     <!-- AOS JavaScript CDN -->
@@ -386,7 +461,7 @@
     <script>
         // Inisialisasi AOS
         AOS.init({
-            once: false, // Animasi berulang setiap elemen masuk viewport
+            once: false, // Animasi berulang kecuali elemen dengan data-aos-once="true"
             duration: 1000, // Durasi animasi
             easing: 'ease-in-out', // Efek easing halus
             mirror: true, // Animasi juga dipicu saat scroll ke atas
@@ -418,11 +493,11 @@
         // Form Submission (Contoh sederhana)
         document.getElementById('contact-form').addEventListener('submit', function(e) {
             e.preventDefault();
-            alert('Pesan telah dikirim! Saya akan segera menghubungi Anda.');
+            alert('Pesan telah dikirim! Max akan segera menghubungi Anda.');
             this.reset();
         });
 
-        // Micro-interaction: Efek ripple pada tombol CTA
+        // Micro-interaction: Efek ripple pada tombol CTA dan submit
         document.querySelectorAll('.cta-button, .contact button').forEach(button => {
             button.addEventListener('click', function(e) {
                 const ripple = document.createElement('span');
@@ -441,23 +516,5 @@
             });
         });
     </script>
-    <style>
-        /* Ripple Effect untuk Micro-interaction */
-        .ripple {
-            position: absolute;
-            background: rgba(255, 255, 255, 0.3);
-            border-radius: 50%;
-            transform: scale(0);
-            animation: ripple-effect 0.6s linear;
-            pointer-events: none;
-        }
-
-        @keyframes ripple-effect {
-            to {
-                transform: scale(4);
-                opacity: 0;
-            }
-        }
-    </style>
 </body>
 </html>

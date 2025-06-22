@@ -102,7 +102,7 @@
             position: fixed;
             top: 0;
             width: 100%;
-            padding: 15px 20px;
+            padding: 25px 20px; /* Diperbesar ke bawah */
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -113,7 +113,7 @@
         }
 
         .navbar .logo {
-            font-size: 20px;
+            font-size: 24px; /* Lebih besar */
             font-weight: 700;
             color: #d4af37;
             transition: color 0.3s ease;
@@ -132,7 +132,7 @@
             color: #f9f7f5;
             text-decoration: none;
             margin-left: 20px;
-            font-size: 14px;
+            font-size: 16px; /* Lebih besar */
             position: relative;
             transition: color 0.3s ease, transform 0.3s ease;
         }
@@ -159,7 +159,7 @@
 
         .hamburger {
             display: none;
-            font-size: 20px;
+            font-size: 24px; /* Lebih besar */
             color: #f9f7f5;
             cursor: pointer;
             transition: transform 0.3s ease;
@@ -177,7 +177,7 @@
             align-items: center;
             text-align: center;
             padding: 0 15px;
-            background: transparent; /* Transparan untuk efek gelombang */
+            background: transparent;
             position: relative;
             overflow: hidden;
             z-index: 1;
@@ -188,7 +188,6 @@
             z-index: 3;
         }
 
-        /* Efek gelombang gradien baru */
         .title-bg {
             position: absolute;
             top: 50%;
@@ -565,14 +564,14 @@
 
         @media (max-width: 768px) {
             .navbar {
-                padding: 10px 15px;
+                padding: 20px 15px; /* Sedikit lebih kecil di mobile */
             }
 
             .nav-links {
                 display: none;
                 flex-direction: column;
                 position: absolute;
-                top: 60px;
+                top: 80px; /* Disesuaikan dengan navbar lebih tinggi */
                 left: 0;
                 width: 100%;
                 background: rgba(26, 26, 46, 0.95);
@@ -588,11 +587,12 @@
 
             .nav-links a {
                 margin: 10px 0;
-                font-size: 16px;
+                font-size: 18px; /* Lebih besar di mobile */
             }
 
             .hamburger {
                 display: block;
+                font-size: 22px; /* Sedikit lebih besar */
                 z-index: 1000;
             }
 

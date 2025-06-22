@@ -4,18 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Portofolio Max Faisal Bahreizy</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Inter', sans-serif;
         }
 
         body {
-            background-color: #0a0a0a;
+            background-color: #0f0f0f;
             color: #fff;
             line-height: 1.6;
             overflow-x: hidden;
@@ -26,21 +26,22 @@
             top: 0;
             width: 100%;
             padding: 15px 20px;
-            background: transparent;
+            background: linear-gradient(to bottom, rgba(15,15,15,0.9), rgba(15,15,15,0));
             transition: background 0.3s ease;
             z-index: 1000;
         }
 
         .navbar.scrolled {
-            background: rgba(10, 10, 10, 0.95);
-            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+            background: rgba(15, 15, 15, 0.98);
+            box-shadow: 0 3px 8px rgba(0,0,0,0.5);
         }
 
         .navbar .logo {
-            color: #ffd700;
-            font-size: 22px;
+            color: #f0c14b;
+            font-size: 24px;
             font-weight: 600;
             text-decoration: none;
+            letter-spacing: 1px;
         }
 
         .hamburger {
@@ -49,20 +50,21 @@
             justify-content: center;
             cursor: pointer;
             float: right;
-            width: 30px;
-            height: 30px;
+            width: 32px;
+            height: 32px;
         }
 
         .hamburger div {
-            width: 25px;
-            height: 2px;
+            width: 26px;
+            height: 2.5px;
             background-color: #fff;
-            margin: 3px 0;
+            margin: 3.5px 0;
             transition: all 0.3s ease;
+            border-radius: 2px;
         }
 
         .hamburger.active div:nth-child(1) {
-            transform: rotate(45deg) translate(5px, 5px);
+            transform: rotate(45deg) translate(6px, 6px);
         }
 
         .hamburger.active div:nth-child(2) {
@@ -70,18 +72,19 @@
         }
 
         .hamburger.active div:nth-child(3) {
-            transform: rotate(-45deg) translate(5px, -5px);
+            transform: rotate(-45deg) translate(6px, -6px);
         }
 
         .nav-menu {
             display: none;
             position: fixed;
-            top: 60px;
+            top: 65px;
             left: 0;
             width: 100%;
-            background: rgba(10, 10, 10, 0.95);
-            padding: 15px 0;
+            background: rgba(15, 15, 15, 0.98);
+            padding: 20px 0;
             text-align: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.5);
         }
 
         .nav-menu.active {
@@ -90,23 +93,24 @@
 
         .nav-menu li {
             list-style: none;
-            padding: 10px 0;
+            padding: 12px 0;
         }
 
         .nav-menu li a {
             color: #fff;
             text-decoration: none;
             font-size: 16px;
-            font-weight: 400;
-            transition: color 0.3s ease;
+            font-weight: 500;
+            transition: color 0.3s ease, transform 0.3s ease;
         }
 
         .nav-menu li a:hover {
-            color: #ffd700;
+            color: #f0c14b;
+            transform: scale(1.05);
         }
 
         section {
-            padding: 80px 20px;
+            padding: 90px 20px;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
@@ -115,46 +119,51 @@
         }
 
         #home {
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://via.placeholder.com/800x600') center/cover no-repeat;
+            background: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)), url('https://via.placeholder.com/800x600') center/cover no-repeat;
             background-attachment: fixed;
             color: #fff;
+            position: relative;
         }
 
         #home h1 {
-            font-size: 32px;
+            font-size: 34px;
             font-weight: 700;
-            margin-bottom: 10px;
-            color: #ffd700;
+            margin-bottom: 12px;
+            color: #f0c14b;
+            letter-spacing: 1.5px;
         }
 
         #home p {
             font-size: 16px;
             font-weight: 300;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
+            color: #ddd;
         }
 
         .cta-button {
             display: inline-block;
-            padding: 12px 25px;
-            background-color: #ffd700;
-            color: #0a0a0a;
+            padding: 14px 30px;
+            background: linear-gradient(135deg, #f0c14b, #d4a017);
+            color: #0f0f0f;
             text-decoration: none;
             font-size: 16px;
             font-weight: 600;
-            border-radius: 25px;
+            border-radius: 50px;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 15px rgba(240, 193, 75, 0.3);
         }
 
         .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.4);
+            transform: translateY(-4px);
+            box-shadow: 0 6px 20px rgba(240, 193, 75, 0.5);
         }
 
         h2 {
-            font-size: 28px;
+            font-size: 30px;
             font-weight: 600;
-            margin-bottom: 20px;
-            color: #ffd700;
+            margin-bottom: 25px;
+            color: #f0c14b;
+            letter-spacing: 1px;
         }
 
         .about-content p {
@@ -162,7 +171,58 @@
             font-weight: 300;
             max-width: 90%;
             margin: 0 auto 15px;
-            color: #ccc;
+            color: #bbb;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            max-width: 90%;
+            margin: 0 auto;
+        }
+
+        .service-card {
+            background: rgba(255, 255, 255, 0.03);
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid rgba(240, 193, 75, 0.15);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(240, 193, 75, 0.1), transparent);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .service-card:hover::before {
+            opacity: 1;
+        }
+
+        .service-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 8px 20px rgba(240, 193, 75, 0.2);
+        }
+
+        .service-card h3 {
+            font-size: 18px;
+            font-weight: 600;
+            color: #f0c14b;
+            margin-bottom: 10px;
+        }
+
+        .service-card p {
+            font-size: 14px;
+            color: #bbb;
         }
 
         .skills-grid {
@@ -174,17 +234,18 @@
         }
 
         .skill-item {
-            background: rgba(255, 215, 0, 0.1);
-            color: #ffd700;
-            padding: 10px;
-            border-radius: 8px;
+            background: linear-gradient(135deg, rgba(240, 193, 75, 0.1), rgba(240, 193, 75, 0.05));
+            color: #f0c14b;
+            padding: 12px;
+            border-radius: 10px;
             font-size: 14px;
-            font-weight: 400;
-            transition: transform 0.3s ease;
+            font-weight: 500;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         .skill-item:hover {
-            transform: scale(1.05);
+            transform: scale(1.1);
+            box-shadow: 0 4px 10px rgba(240, 193, 75, 0.3);
         }
 
         .projects-grid {
@@ -196,58 +257,78 @@
         }
 
         .project-card {
-            background: rgba(255, 255, 255, 0.05);
-            padding: 15px;
-            border-radius: 10px;
-            border: 1px solid rgba(255, 215, 0, 0.2);
+            background: rgba(255, 255, 255, 0.03);
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid rgba(240, 193, 75, 0.15);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(240, 193, 75, 0.1), transparent);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .project-card:hover::before {
+            opacity: 1;
         }
 
         .project-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.2);
+            transform: translateY(-6px);
+            box-shadow: 0 8px 20px rgba(240, 193, 75, 0.2);
         }
 
         .project-card h3 {
             font-size: 18px;
             font-weight: 600;
-            color: #ffd700;
+            color: #f0c14b;
             margin-bottom: 10px;
         }
 
         .project-card p {
             font-size: 14px;
-            color: #ccc;
+            color: #bbb;
         }
 
         .contact-info p {
             font-size: 15px;
             margin-bottom: 12px;
-            color: #ccc;
+            color: #bbb;
         }
 
         .contact-info a {
-            color: #ffd700;
+            color: #f0c14b;
             text-decoration: none;
-            font-weight: 400;
-            transition: color 0.3s ease;
+            font-weight: 500;
+            transition: color 0.3s ease, transform 0.3s ease;
         }
 
         .contact-info a:hover {
             color: #fff;
+            transform: scale(1.05);
         }
 
         footer {
-            background: #1a1a1a;
-            padding: 20px;
+            background: #1c1c1c;
+            padding: 25px;
             text-align: center;
             font-size: 14px;
-            color: #ccc;
-            border-top: 1px solid rgba(255, 215, 0, 0.2);
+            color: #bbb;
+            border-top: 1px solid rgba(240, 193, 75, 0.2);
         }
 
         footer p {
             font-weight: 300;
+            letter-spacing: 0.5px;
         }
 
         @media (min-width: 768px) {
@@ -261,15 +342,16 @@
                 background: transparent;
                 padding: 0;
                 float: right;
+                box-shadow: none;
             }
 
             .nav-menu li {
                 display: inline-block;
-                padding: 0 15px;
+                padding: 0 18px;
             }
 
             #home h1 {
-                font-size: 40px;
+                font-size: 42px;
             }
 
             #home p {
@@ -277,17 +359,22 @@
             }
 
             .cta-button {
-                padding: 15px 30px;
+                padding: 16px 35px;
                 font-size: 18px;
             }
 
             h2 {
-                font-size: 32px;
+                font-size: 34px;
             }
 
             .about-content p {
                 font-size: 16px;
                 max-width: 600px;
+            }
+
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+                max-width: 800px;
             }
 
             .skills-grid {
@@ -324,6 +411,7 @@
         <ul class="nav-menu" id="nav-menu">
             <li><a href="#home">Beranda</a></li>
             <li><a href="#about">Tentang</a></li>
+            <li><a href="#services">Layanan</a></li>
             <li><a href="#skills">Keahlian</a></li>
             <li><a href="#projects">Proyek</a></li>
             <li><a href="#contact">Kontak</a></li>
@@ -332,15 +420,33 @@
 
     <section id="home" data-aos="fade-up">
         <h1>Max Faisal Bahreizy</h1>
-        <p>Web Developer & Designer Kreatif</p>
-        <a href="#contact" class="cta-button">Hubungi Saya</a>
+        <p>Crafting Digital Experiences with Elegance & Innovation</p>
+        <a href="#contact" class="cta-button">Let’s Collaborate</a>
     </section>
 
     <section id="about" data-aos="fade-up">
         <h2>Tentang Saya</h2>
         <div class="about-content">
-            <p>Saya Max Faisal Bahreizy, seorang pengembang web dengan passion untuk menciptakan pengalaman digital yang memukau. Dengan keahlian di front-end dan back-end, saya membangun situs yang elegan dan fungsional.</p>
-            <p>Saya menggabungkan kreativitas dan teknologi untuk menghadirkan solusi inovatif. Di waktu luang, saya menikmati menjelajahi tren desain dan bermain game strategi.</p>
+            <p>Saya Max Faisal Bahreizy, seorang pengembang web yang bersemangat menciptakan solusi digital yang memukau. Dengan pengalaman di front-end dan back-end, saya fokus pada desain yang fungsional dan estetis.</p>
+            <p>Kreativitas dan teknologi adalah dunia saya. Di luar coding, saya suka mengeksplor tren desain modern dan menikmati game strategi untuk mengasah logika.</p>
+        </div>
+    </section>
+
+    <section id="services" data-aos="fade-up">
+        <h2>Layanan</h2>
+        <div class="services-grid">
+            <div class="service-card" data-aos="zoom-in" data-aos-delay="100">
+                <h3>Pengembangan Web</h3>
+                <p>Membangun website responsif, cepat, dan SEO-friendly dengan teknologi modern seperti React dan Node.js.</p>
+            </div>
+            <div class="service-card" data-aos="zoom-in" data-aos-delay="200">
+                <h3>Desain UI/UX</h3>
+                <p>Menciptakan antarmuka pengguna yang intuitif dan menarik dengan fokus pada pengalaman pengguna terbaik.</p>
+            </div>
+            <div class="service-card" data-aos="zoom-in" data-aos-delay="300">
+                <h3>Konsultasi Digital</h3>
+                <p>Membantu bisnis Anda bertransformasi digital dengan strategi teknologi yang tepat dan inovatif.</p>
+            </div>
         </div>
     </section>
 
@@ -384,14 +490,14 @@
     </section>
 
     <footer data-aos="fade-up" data-aos-once="true">
-        <p>&copy; 2025 Max Faisal Bahreizy. All Rights Reserved.</p>
+        <p>© 2025 Max Faisal Bahreizy. All Rights Reserved.</p>
     </footer>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         // Initialize AOS
         AOS.init({
-            duration: 800,
+            duration: 1000,
             easing: 'ease-out-cubic',
             once: false // Animasi berulang kecuali untuk elemen dengan data-aos-once="true"
         });
@@ -418,7 +524,7 @@
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
                 window.scrollTo({
-                    top: target.offsetTop - 60,
+                    top: target.offsetTop - 65,
                     behavior: 'smooth'
                 });
             });

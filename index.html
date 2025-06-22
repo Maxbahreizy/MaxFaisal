@@ -28,7 +28,7 @@
         body {
             background: linear-gradient(135deg, #1a1a2e, #2a2a4e, #d4af37);
             background-size: 200% 200%;
-            animation: gradientShift 10s ease infinite;
+            animation: gradientShift 15s ease infinite;
             color: #f9f7f5;
             line-height: 1.6;
             min-height: 100vh;
@@ -58,7 +58,6 @@
             height: 100%;
             background: rgba(212, 175, 55, 0.1);
             border-radius: 50%;
-            filter: blur(50px);
             transform: translateZ(0);
         }
 
@@ -178,33 +177,44 @@
             align-items: center;
             text-align: center;
             padding: 0 15px;
-            background: #1a1a2e; /* Solid color untuk menghindari overlay */
+            background: transparent; /* Transparan untuk efek gelombang */
             position: relative;
             overflow: hidden;
             z-index: 1;
         }
 
-        /* Efek background di belakang judul */
+        .hero-content {
+            position: relative;
+            z-index: 3;
+        }
+
+        /* Efek gelombang gradien baru */
         .title-bg {
             position: absolute;
             top: 50%;
             left: 50%;
-            width: 400px;
-            height: 400px;
-            background: radial-gradient(circle, rgba(212, 175, 55, 0.7), transparent 70%);
+            width: 500px;
+            height: 500px;
+            background: linear-gradient(
+                45deg,
+                rgba(212, 175, 55, 0.6),
+                rgba(42, 42, 78, 0.4),
+                rgba(26, 26, 46, 0.3),
+                transparent
+            );
             /* background: red; */ /* Uncomment untuk tes visibilitas */
             border-radius: 50%;
-            box-shadow: 0 0 60px rgba(212, 175, 55, 0.5);
-            transform: translate(-50%, -50%) scale(1);
-            animation: glowPulse 3s ease-in-out infinite;
+            transform: translate(-50%, -50%);
+            animation: wavePulse 10s ease-in-out infinite;
             z-index: 2;
             pointer-events: none;
             aria-hidden="true";
         }
 
-        @keyframes glowPulse {
-            0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.7; }
-            50% { transform: translate(-50%, -50%) scale(1.1); opacity: 0.9; }
+        @keyframes wavePulse {
+            0% { transform: translate(-50%, -50%) scale(1); opacity: 0.6; }
+            50% { transform: translate(-50%, -50%) scale(1.3); opacity: 0.8; }
+            100% { transform: translate(-50%, -50%) scale(1); opacity: 0.6; }
         }
 
         .hero h1 {
@@ -601,10 +611,9 @@
             }
 
             .title-bg {
-                width: 300px;
-                height: 300px;
-                box-shadow: 0 0 40px rgba(212, 175, 55, 0.4);
-                animation: glowPulse 4s ease-in-out infinite;
+                width: 350px;
+                height: 350px;
+                animation: wavePulse 12s ease-in-out infinite;
             }
 
             section {
@@ -670,7 +679,7 @@
             }
 
             body {
-                animation: gradientShift 15s ease infinite;
+                animation: gradientShift 20s ease infinite;
             }
 
             .parallax-bg {
@@ -693,16 +702,20 @@
                 opacity: 1 !important;
                 transform: none !important;
             }
+
             .skill-item, .project-card, .experience-card, .testimonial-card, .blog-card {
                 transition: none !important;
             }
+
             html {
                 scroll-behavior: auto !important;
             }
+
             body {
                 animation: none !important;
                 background: #1a1a2e;
             }
+
             .parallax-bg, .global-particles, .contact-particles, .title-bg {
                 display: none !important;
             }
@@ -730,10 +743,9 @@
         }
 
         .title-bg.no-animation {
-            background: rgba(212, 175, 55, 0.5);
+            background: linear-gradient(45deg, rgba(212, 175, 55, 0.5), transparent);
             animation: none;
             opacity: 0.5;
-            box-shadow: none;
         }
     </style>
 </head>
@@ -766,10 +778,12 @@
     </nav>
 
     <section id="home" class="hero">
-        <div class="title-bg"></div>
-        <h1 data-aos="fade-up" data-aos-duration="800">Max Faisal Bahreizy</h1>
-        <p data-aos="fade-up" data-aos-delay="100" data-aos-duration="800">Pengembang Web | Solusi Digital Kreatif | Inovator Modern</p>
-        <button class="cta" onclick="scrollToSection('projects')" data-aos="fade-up" data-aos-delay="200" data-aos-duration="800">Lihat Karya Saya</button>
+        <div class="hero-content">
+            <div class="title-bg"></div>
+            <h1 data-aos="fade-up" data-aos-duration="800">Max Faisal Bahreizy</h1>
+            <p data-aos="fade-up" data-aos-delay="100" data-aos-duration="800">Pengembang Web | Solusi Digital Kreatif | Inovator Modern</p>
+            <button class="cta" onclick="scrollToSection('projects')" data-aos="fade-up" data-aos-delay="200" data-aos-duration="800">Lihat Karya Saya</button>
+        </div>
     </section>
 
     <section id="about" data-aos="fade-up" data-aos-duration="800">
@@ -907,28 +921,26 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         if (!('scrollBehavior' in document.documentElement.style)) {
-            (function() {
-                const scrollTo = (element, to, duration) => {
-                    const start = element.scrollTop;
-                    const change = to - start;
-                    const startTime = performance.now();
-                    const animateScroll = (currentTime) => {
-                        const elapsed = currentTime - startTime;
-                        const progress = Math.min(elapsed / duration, 1);
-                        const ease = t => t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
-                        element.scrollTop = start + change * ease(progress);
-                        if (elapsed < duration) requestAnimationFrame(animateScroll);
-                    };
-                    requestAnimationFrame(animateScroll);
+            const scrollTo = (element, to, duration) => {
+                const start = element.scrollTop;
+                const change = to - start;
+                const startTime = performance.now();
+                const animateScroll = (currentTime) => {
+                    const elapsed = currentTime - startTime;
+                    const progress = Math.min(elapsed / duration, 1);
+                    const ease = t => t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
+                    element.scrollTop = start + change * ease(progress);
+                    if (elapsed < duration) requestAnimationFrame(animateScroll);
                 };
-                window.scrollToSection = (sectionId) => {
-                    const section = document.getElementById(sectionId);
-                    const navbarHeight = document.querySelector('.navbar').offsetHeight;
-                    const targetPosition = section.offsetTop - navbarHeight;
-                    scrollTo(document.documentElement, targetPosition, 800);
-                    console.log(`Polyfill scroll to: ${sectionId}`);
-                };
-            })();
+                requestAnimationFrame(animateScroll);
+            };
+            window.scrollToSection = (sectionId) => {
+                const section = document.getElementById(sectionId);
+                const navbarHeight = document.querySelector('.navbar').offsetHeight;
+                const targetPosition = section.offsetTop - navbarHeight;
+                scrollTo(document.documentElement, targetPosition, 800);
+                console.log(`Polyfill scroll to: ${sectionId}`);
+            };
         } else {
             window.scrollToSection = (sectionId) => {
                 const section = document.getElementById(sectionId);
@@ -1057,13 +1069,13 @@
         });
 
         window.addEventListener('load', () => {
-            if (!window.CSS || !window.CSS.supports('animation', 'gradientShift')) {
+            if (!window.CSS || !window.CSS.supports('animation', 'wavePulse')) {
                 document.body.classList.add('no-animation');
                 document.querySelector('.title-bg').classList.add('no-animation');
                 console.warn('CSS animations not supported, using static background');
             }
             const titleBg = document.querySelector('.title-bg');
-            if (window.getComputedStyle(titleBg).opacity < 0.1) {
+            if (window.getComputedStyle(titleBg).opacity < 0.1 || window.getComputedStyle(titleBg).display === 'none') {
                 titleBg.classList.add('no-animation');
                 console.warn('Title background not visible, applying fallback');
             }

@@ -15,7 +15,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
     <style>
         html {
-            scroll-behavior: smooth; /* Scroll halus */
+            scroll-behavior: smooth;
         }
 
         * {
@@ -26,7 +26,7 @@
         }
 
         body {
-            background: linear-gradient(135deg, #1a1a2e, #2a2a4e, #d4af37); /* Gradien dinamis */
+            background: linear-gradient(135deg, #1a1a2e, #2a2a4e, #d4af37);
             background-size: 200% 200%;
             animation: gradientShift 10s ease infinite;
             color: #f9f7f5;
@@ -36,14 +36,12 @@
             position: relative;
         }
 
-        /* Animasi gradien */
         @keyframes gradientShift {
             0% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
             100% { background-position: 0% 50%; }
         }
 
-        /* Lapisan parallax */
         .parallax-bg {
             position: fixed;
             top: 0;
@@ -61,7 +59,7 @@
             background: rgba(212, 175, 55, 0.1);
             border-radius: 50%;
             filter: blur(50px);
-            transform: translateZ(0); /* Optimasi GPU */
+            transform: translateZ(0);
         }
 
         .layer-1 { transform: scale(1.5); animation: floatParallax 20s infinite ease-in-out; }
@@ -72,7 +70,6 @@
             50% { transform: translateY(-50px) scale(1.4); opacity: 0.3; }
         }
 
-        /* Partikel global */
         .global-particles {
             position: fixed;
             top: 0;
@@ -181,7 +178,7 @@
             align-items: center;
             text-align: center;
             padding: 0 15px;
-            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1557681719-e4fa5f82e166?auto=format&fit=crop&w=1920') center/cover no-repeat;
+            background: #1a1a2e; /* Solid color untuk menghindari overlay */
             position: relative;
             overflow: hidden;
             z-index: 1;
@@ -192,59 +189,31 @@
             position: absolute;
             top: 50%;
             left: 50%;
-            width: 300px;
-            height: 300px;
-            background: radial-gradient(circle, rgba(212, 175, 55, 0.3), transparent 70%);
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.7), transparent 70%);
+            /* background: red; */ /* Uncomment untuk tes visibilitas */
             border-radius: 50%;
-            filter: blur(50px);
+            box-shadow: 0 0 60px rgba(212, 175, 55, 0.5);
             transform: translate(-50%, -50%) scale(1);
             animation: glowPulse 3s ease-in-out infinite;
-            z-index: -1;
+            z-index: 2;
             pointer-events: none;
             aria-hidden="true";
         }
 
         @keyframes glowPulse {
-            0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.3; }
-            50% { transform: translate(-50%, -50%) scale(1.1); opacity: 0.5; }
-        }
-
-        /* Partikel lokal di sekitar judul */
-        .title-particles {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 200px;
-            height: 200px;
-            transform: translate(-50%, -50%);
-            z-index: -1;
-            pointer-events: none;
-        }
-
-        .title-particle {
-            position: absolute;
-            background: rgba(212, 175, 55, 0.6);
-            border-radius: 50%;
-            animation: floatTitleParticle 4s infinite ease-in-out;
-            aria-hidden="true";
-        }
-
-        .title-particle:nth-child(1) { width: 4px; height: 4px; top: 20%; left: 10%; animation-delay: 0s; animation-duration: 4s; }
-        .title-particle:nth-child(2) { width: 5px; height: 5px; top: 70%; left: 80%; animation-delay: 1s; animation-duration: 5s; }
-        .title-particle:nth-child(3) { width: 3px; height: 3px; top: 40%; left: 30%; animation-delay: 2s; animation-duration: 6s; }
-
-        @keyframes floatTitleParticle {
-            0%, 100% { transform: translate(0, 0); opacity: 0.6; }
-            50% { transform: translate(10px, -10px); opacity: 0.8; }
+            0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.7; }
+            50% { transform: translate(-50%, -50%) scale(1.1); opacity: 0.9; }
         }
 
         .hero h1 {
             font-size: 3.5rem;
             font-weight: 700;
             color: #f9f7f5;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
             position: relative;
-            z-index: 2;
+            z-index: 3;
         }
 
         .hero p {
@@ -253,7 +222,7 @@
             margin: 15px 0;
             max-width: 600px;
             position: relative;
-            z-index: 2;
+            z-index: 3;
         }
 
         .hero .cta {
@@ -267,7 +236,7 @@
             position: relative;
             overflow: hidden;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
-            z-index: 2;
+            z-index: 3;
         }
 
         .hero .cta:hover {
@@ -298,7 +267,7 @@
             text-align: center;
             position: relative;
             z-index: 1;
-            opacity: 1; /* Fallback visibilitas */
+            opacity: 1;
         }
 
         section h2 {
@@ -490,7 +459,7 @@
             text-align: center;
             position: relative;
             z-index: 1;
-            opacity: 1; /* Fallback visibilitas */
+            opacity: 1;
         }
 
         .footer-logo {
@@ -529,7 +498,6 @@
             font-size: 0.85rem;
         }
 
-        /* Modal Styles */
         .modal {
             display: none;
             position: fixed;
@@ -585,7 +553,6 @@
             to { opacity: 1; transform: scale(1); }
         }
 
-        /* Media Queries untuk Mobile */
         @media (max-width: 768px) {
             .navbar {
                 padding: 10px 15px;
@@ -634,14 +601,10 @@
             }
 
             .title-bg {
-                width: 200px;
-                height: 200px;
-                filter: blur(30px); /* Blur lebih kecil untuk performa */
-                animation: glowPulse 5s ease-in-out infinite; /* Animasi lebih lambat */
-            }
-
-            .title-particles {
-                display: none; /* Nonaktifkan partikel lokal di mobile */
+                width: 300px;
+                height: 300px;
+                box-shadow: 0 0 40px rgba(212, 175, 55, 0.4);
+                animation: glowPulse 4s ease-in-out infinite;
             }
 
             section {
@@ -657,7 +620,7 @@
             }
 
             .skill-item, .project-card, .experience-card, .testimonial-card, .blog-card {
-                transform: none !important; /* Disable hover di mobile */
+                transform: none !important;
             }
 
             #contact {
@@ -706,26 +669,24 @@
                 font-size: 0.9rem;
             }
 
-            /* Optimasi background untuk mobile */
             body {
-                animation: gradientShift 15s ease infinite; /* Animasi lebih lambat */
+                animation: gradientShift 15s ease infinite;
             }
 
             .parallax-bg {
-                display: none; /* Nonaktifkan parallax di mobile */
+                display: none;
             }
 
             .global-particles .particle:nth-child(4),
             .global-particles .particle:nth-child(5) {
-                display: none; /* Kurangi partikel di mobile */
+                display: none;
             }
 
             .global-particles .particle {
-                animation: floatParticle 10s infinite ease-in-out; /* Animasi lebih lambat */
+                animation: floatParticle 10s infinite ease-in-out;
             }
         }
 
-        /* Mengurangi animasi untuk prefers-reduced-motion */
         @media (prefers-reduced-motion: reduce) {
             [data-aos] {
                 transition: none !important;
@@ -740,14 +701,13 @@
             }
             body {
                 animation: none !important;
-                background: #1a1a2e; /* Fallback statis */
+                background: #1a1a2e;
             }
-            .parallax-bg, .global-particles, .contact-particles, .title-bg, .title-particles {
+            .parallax-bg, .global-particles, .contact-particles, .title-bg {
                 display: none !important;
             }
         }
 
-        /* Fallback CSS untuk AOS */
         .skill-item, .project-card, .experience-card, .testimonial-card, .blog-card {
             opacity: 0;
             transform: translateY(20px);
@@ -761,13 +721,19 @@
 
         @media (max-width: 768px) {
             .skill-item, .project-card, .experience-card, .testimonial-card, .blog-card {
-                transition: opacity 0.6s ease-in-out, transform 0.6s ease-in-out; /* Durasi lebih cepat di mobile */
+                transition: opacity 0.6s ease-in-out, transform 0.6s ease-in-out;
             }
         }
 
-        /* Fallback untuk background */
         body.no-animation, .hero.no-animation .title-bg {
-            background: #1a1a2e; /* Fallback statis */
+            background: #1a1a2e;
+        }
+
+        .title-bg.no-animation {
+            background: rgba(212, 175, 55, 0.5);
+            animation: none;
+            opacity: 0.5;
+            box-shadow: none;
         }
     </style>
 </head>
@@ -801,11 +767,6 @@
 
     <section id="home" class="hero">
         <div class="title-bg"></div>
-        <div class="title-particles">
-            <div class="title-particle"></div>
-            <div class="title-particle"></div>
-            <div class="title-particle"></div>
-        </div>
         <h1 data-aos="fade-up" data-aos-duration="800">Max Faisal Bahreizy</h1>
         <p data-aos="fade-up" data-aos-delay="100" data-aos-duration="800">Pengembang Web | Solusi Digital Kreatif | Inovator Modern</p>
         <button class="cta" onclick="scrollToSection('projects')" data-aos="fade-up" data-aos-delay="200" data-aos-duration="800">Lihat Karya Saya</button>
@@ -935,7 +896,6 @@
         </div>
     </footer>
 
-    <!-- Modal -->
     <div id="projectModal" class="modal">
         <div class="modal-content">
             <span class="close">×</span>
@@ -946,7 +906,6 @@
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        // Polyfill untuk scroll halus di browser lama
         if (!('scrollBehavior' in document.documentElement.style)) {
             (function() {
                 const scrollTo = (element, to, duration) => {
@@ -971,7 +930,6 @@
                 };
             })();
         } else {
-            // Scroll halus dengan offset navbar
             window.scrollToSection = (sectionId) => {
                 const section = document.getElementById(sectionId);
                 const navbarHeight = document.querySelector('.navbar').offsetHeight;
@@ -981,7 +939,6 @@
             };
         }
 
-        // Inisialisasi AOS dengan animasi halus
         try {
             AOS.init({
                 duration: 800,
@@ -1000,7 +957,6 @@
             });
         }
 
-        // Parallax Effect
         const parallaxLayers = document.querySelectorAll('.parallax-layer');
         window.addEventListener('scroll', () => {
             const scrollY = window.scrollY;
@@ -1010,7 +966,6 @@
             });
         });
 
-        // Hamburger Menu
         const hamburger = document.querySelector('.hamburger');
         const navLinks = document.querySelector('.nav-links');
         hamburger.addEventListener('click', (e) => {
@@ -1028,7 +983,6 @@
             });
         });
 
-        // Ripple Effect on Buttons
         document.querySelectorAll('.cta, .view-details').forEach(button => {
             button.addEventListener('click', (e) => {
                 const ripple = document.createElement('span');
@@ -1047,7 +1001,6 @@
             });
         });
 
-        // Modal Functionality
         const modal = document.getElementById('projectModal');
         const modalTitle = document.getElementById('modalTitle');
         const modalDescription = document.getElementById('modalDescription');
@@ -1075,7 +1028,6 @@
             }
         });
 
-        // Animasi Fallback untuk Kotak Putih
         const animateOnScroll = () => {
             const elements = document.querySelectorAll('.skill-item, .project-card, .experience-card, .testimonial-card, .blog-card');
             const observer = new IntersectionObserver((entries) => {
@@ -1093,7 +1045,6 @@
         };
         animateOnScroll();
 
-        // Fallback Visibilitas Kuat untuk Kotak Putih
         window.addEventListener('load', () => {
             setTimeout(() => {
                 document.querySelectorAll('.skill-item, .project-card, .experience-card, .testimonial-card, .blog-card').forEach(el => {
@@ -1105,15 +1056,19 @@
             }, 1000);
         });
 
-        // Fallback untuk Background
         window.addEventListener('load', () => {
             if (!window.CSS || !window.CSS.supports('animation', 'gradientShift')) {
                 document.body.classList.add('no-animation');
+                document.querySelector('.title-bg').classList.add('no-animation');
                 console.warn('CSS animations not supported, using static background');
+            }
+            const titleBg = document.querySelector('.title-bg');
+            if (window.getComputedStyle(titleBg).opacity < 0.1) {
+                titleBg.classList.add('no-animation');
+                console.warn('Title background not visible, applying fallback');
             }
         });
 
-        // Tambahkan Gaya Animasi
         const style = document.createElement('style');
         style.innerHTML = `
             @keyframes rippleEffect {
@@ -1122,7 +1077,6 @@
         `;
         document.head.appendChild(style);
 
-        // Touch Support for Cards
         document.querySelectorAll('.skill-item, .project-card, .experience-card, .testimonial-card, .blog-card').forEach(card => {
             let touchTimeout;
             card.addEventListener('touchstart', () => {
@@ -1144,7 +1098,6 @@
             });
         });
 
-        // Deteksi Masalah AOS
         window.addEventListener('load', () => {
             if (typeof AOS === 'undefined') {
                 console.error('AOS library not loaded');

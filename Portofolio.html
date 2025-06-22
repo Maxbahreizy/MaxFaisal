@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>Portofolio Max Faisal Bahreizy</title>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Roboto', -apple-system, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #1a1a2e, #2a2a4e);
+            color: #f9f7f5;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 20px 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #1a1a2e;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            transition: transform 0.3s ease-out;
+        }
+
+        .navbar .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: #d4af37;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: #f9f7f5;
+            text-decoration: none;
+            margin-left: 25px;
+            font-size: 16px;
+            position: relative;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #d4af37;
+            transform: translateY(-2px);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 3px;
+            background: #d4af37;
+            bottom: -5px;
+            left: 0;
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .hamburger {
+            display: none;
+            font-size: 24px;
+            color: #f9f7f5;
+            cursor: pointer;
+        }
+
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1557681719-e4fa5f82e166?auto=format&fit=crop&w=1920') center/cover no-repeat;
+            position: relative;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 700;
+            color: #f9f7f5;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            color: #b0b0b0;
+            margin: 20px 0;
+            max-width: 600px;
+        }
+
+        .hero .cta {
+            padding: 12px 35px;
+            background: linear-gradient(45deg, #d4af37, #b89736);
+            color: #1a1a2e;
+            border: none;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .hero .cta:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 12px rgba(212, 175, 55, 0.4);
+        }
+
+        section {
+            padding: 80px 60px;
+            text-align: center;
+        }
+
+        section h2 {
+            font-size: 2.8rem;
+            font-weight: 600;
+            color: #d4af37;
+            margin-bottom: 40px;
+        }
+
+        .about-content, .skills-content, .experience-content, .testimonials-content, .blog-content, .contact-content {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .about-content p {
+            font-size: 1.2rem;
+            color: #b0b0b0;
+            transition: opacity 0.5s ease;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .skill-item {
+            background: #f9f7f5;
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .skill-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 16px rgba(212, 175, 55, 0.2);
+        }
+
+        .skill-item h3 {
+            font-size: 1.4rem;
+            color: #1a1a2e;
+            margin-bottom: 10px;
+        }
+
+        .skill-item .icon {
+            font-size: 2rem;
+            color: #d4af37;
+            margin-bottom: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .skill-item:hover .icon {
+            transform: rotate(15deg);
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .project-card {
+            background: #f9f7f5;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .project-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .project-card:hover img {
+            transform: scale(1.08);
+        }
+
+        .project-card h3 {
+            font-size: 1.6rem;
+            padding: 20px;
+            color: #1a1a2e;
+        }
+
+        .project-card p {
+            padding: 0 20px 20px;
+            color: #6c757d;
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 16px rgba(212, 175, 55, 0.2);
+        }
+
+        .experience-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .experience-card {
+            background: #f9f7f5;
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .experience-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 16px rgba(212, 175, 55, 0.2);
+        }
+
+        .experience-card h3 {
+            font-size: 1.6rem;
+            color: #1a1a2e;
+            margin-bottom: 10px;
+        }
+
+        .experience-card p {
+            color: #6c757d;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .testimonial-card {
+            background: #f9f7f5;
+            padding: 20px;
+            border-radius: 10px;
+            color: #6c757d;
+            font-style: italic;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 16px rgba(212, 175, 55, 0.2);
+        }
+
+        .testimonial-card p {
+            margin-bottom: 10px;
+        }
+
+        .testimonial-card h4 {
+            color: #d4af37;
+            font-style: normal;
+        }
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .blog-card {
+            background: #f9f7f5;
+            border-radius: 10px;
+            padding: 20px;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 16px rgba(212, 175, 55, 0.2);
+        }
+
+        .blog-card h3 {
+            font-size: 1.6rem;
+            color: #1a1a2e;
+            margin-bottom: 10px;
+        }
+
+        .blog-card p {
+            color: #6c757d;
+        }
+
+        /* Modern Contact Section */
+        #contact {
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, rgba(26, 26, 46, 0.9), rgba(42, 42, 78, 0.9));
+            padding: 100px 60px;
+            border-top: 1px solid rgba(212, 175, 55, 0.3);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+        }
+
+        .contact-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .contact-content p {
+            font-size: 1.3rem;
+            color: #b0b0b0;
+            margin-bottom: 30px;
+            max-width: 600px;
+        }
+
+        .contact-content .cta {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 35px; /* Sesuaikan dengan tombol hero */
+            background: linear-gradient(45deg, #d4af37, #b89736);
+            color: #1a1a2e;
+            border: none;
+            border-radius: 30px;
+            font-size: 1.1rem; /* Sesuaikan dengan tombol hero */
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .contact-content .cta i {
+            font-size: 1.2rem; /* Ukuran ikon lebih kecil agar proporsional */
+            transition: transform 0.3s ease;
+        }
+
+        .contact-content .cta:hover {
+            transform: scale(1.05); /* Sesuaikan dengan tombol hero */
+            box-shadow: 0 0 12px rgba(212, 175, 55, 0.4); /* Sesuaikan dengan tombol hero */
+        }
+
+        .contact-content .cta:hover i {
+            transform: rotate(360deg);
+        }
+
+        .contact-content .cta::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.5s ease, height 0.5s ease;
+        }
+
+        .contact-content .cta:hover::before {
+            width: 200px; /* Ukuran riak lebih kecil untuk tombol yang lebih kecil */
+            height: 200px;
+        }
+
+        /* Background Particles */
+        .contact-particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .particle {
+            position: absolute;
+            background: rgba(212, 175, 55, 0.5);
+            border-radius: 50%;
+            animation: float 8s infinite ease-in-out;
+        }
+
+        .particle:nth-child(1) { width: 10px; height: 10px; top: 20%; left: 10%; animation-delay: 0s; }
+        .particle:nth-child(2) { width: 15px; height: 15px; top: 50%; left: 80%; animation-delay: 2s; }
+        .particle:nth-child(3) { width: 8px; height: 8px; top: 70%; left: 30%; animation-delay: 4s; }
+        .particle:nth-child(4) { width: 12px; height: 12px; top: 40%; left: 60%; animation-delay: 6s; }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) translateX(0); opacity: 0.5; }
+            50% { transform: translateY(-20px) translateX(10px); opacity: 0.8; }
+        }
+
+        footer {
+            background: #1a1a2e;
+            color: #f9f7f5;
+            padding: 40px 60px 20px;
+            border-top: 1px solid rgba(212, 175, 55, 0.3);
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 20px;
+            position: relative;
+            z-index: 10;
+            margin-top: 60px;
+            min-height: 100px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        footer.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .footer-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #d4af37;
+        }
+
+        .footer-social a {
+            color: #f9f7f5;
+            font-size: 1.8rem;
+            margin-right: 15px;
+            transition: color 0.3s ease, transform 0.3s ease;
+            display: inline-block;
+            min-width: 44px;
+            min-height: 44px;
+            line-height: 44px;
+            text-align: center;
+        }
+
+        .footer-social a:hover {
+            color: #d4af37;
+            transform: scale(1.2);
+        }
+
+        .footer-contact p {
+            margin-bottom: 10px;
+            color: #b0b0b0;
+            font-size: 1rem;
+        }
+
+        .footer-bottom {
+            width: 100%;
+            text-align: center;
+            margin-top: 20px;
+            color: #b0b0b0;
+            font-size: 0.9rem;
+        }
+
+        .footer-bottom .copyright {
+            margin-bottom: 5px;
+        }
+
+        .footer-bottom .credit {
+            font-style: italic;
+            font-size: 0.85rem;
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 15px 20px;
+            }
+
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background: #1a1a2e;
+                padding: 20px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links a {
+                margin: 10px 0;
+                font-size: 18px;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .hero {
+                padding: 0 15px;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+                max-width: 90%;
+            }
+
+            .hero .cta {
+                padding: 10px 30px;
+                font-size: 1rem;
+            }
+
+            section {
+                padding: 40px 20px;
+            }
+
+            section h2 {
+                font-size: 1.8rem;
+            }
+
+            .skills-grid, .projects-grid, .experience-grid, .testimonials-grid, .blog-grid {
+                grid-template-columns: 1fr;
+            }
+
+            #contact {
+                padding: 60px 20px;
+            }
+
+            .contact-content p {
+                font-size: 1rem;
+                max-width: 90%;
+            }
+
+            .contact-content .cta {
+                padding: 10px 30px; /* Sesuaikan dengan tombol hero di mobile */
+                font-size: 1rem; /* Sesuaikan dengan tombol hero di mobile */
+            }
+
+            .contact-content .cta i {
+                font-size: 1rem; /* Sesuaikan ukuran ikon di mobile */
+            }
+
+            footer {
+                padding: 15px 20px 15px;
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                margin-top: 40px;
+                min-height: 80px;
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+            .footer-logo, .footer-social, .footer-contact {
+                margin-bottom: 15px;
+            }
+
+            .footer-social a {
+                font-size: 1.5rem;
+                margin: 0 10px;
+            }
+
+            .footer-contact p {
+                font-size: 0.9rem;
+            }
+
+            .footer-bottom {
+                font-size: 0.8rem;
+            }
+
+            .footer-bottom .credit {
+                font-size: 0.75rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar" data-aos="fade-down" data-aos-anchor-placement="top-center" data-aos-offset="50">
+        <div class="logo">Max Faisal Bahreizy</div>
+        <div class="hamburger">☰</div>
+        <div class="nav-links">
+            <a href="#home">Beranda</a>
+            <a href="#about">Tentang</a>
+            <a href="#skills">Keterampilan</a>
+            <a href="#projects">Proyek</a>
+            <a href="#experience">Pengalaman</a>
+            <a href="#testimonials">Testimoni</a>
+            <a href="#blog">Blog</a>
+            <a href="#contact">Kontak</a>
+        </div>
+    </nav>
+
+    <section id="home" class="hero">
+        <h1 data-aos="fade-up" data-aos-anchor-placement="top-center" data-aos-offset="50">Max Faisal Bahreizy</h1>
+        <p data-aos="fade-up" data-aos-delay="50" data-aos-anchor-placement="top-center" data-aos-offset="50">Pengembang Web | Solusi Digital Kreatif | Inovator Modern</p>
+        <button class="cta" onclick="scrollToSection('projects')" data-aos="zoom-in" data-aos-delay="100" data-aos-anchor-placement="top-center" data-aos-offset="50">Lihat Karya Saya</button>
+    </section>
+
+    <section id="about" data-aos="fade-up" data-aos-anchor-placement="top-center" data-aos-offset="50">
+        <h2>Tentang Saya</h2>
+        <div class="about-content">
+            <p data-aos="fade-up" data-aos-delay="50">Saya adalah pengembang web dengan prompt AI. Saya mampu menyesuaikan desain website pilihan anda walaupun menggunakan AI. Cek sekarang.</p>
+        </div>
+    </section>
+
+    <section id="skills" data-aos="fade-up" data-aos-anchor-placement="top-center" data-aos-offset="50">
+        <h2>Keterampilan</h2>
+        <div class="skills-grid">
+            <div class="skill-item" data-aos="fade-up" data-aos-delay="50">
+                <div class="icon">🎨</div>
+                <h3>UI/UX Design</h3>
+            </div>
+            <div class="skill-item" data-aos="fade-up" data-aos-delay="100">
+                <div class="icon">💻</div>
+                <h3>Frontend Dev</h3>
+            </div>
+            <div class="skill-item" data-aos="fade-up" data-aos-delay="150">
+                <div class="icon">🛠️</div>
+                <h3>Backend Dev</h3>
+            </div>
+            <div class="skill-item" data-aos="fade-up" data-aos-delay="200">
+                <div class="icon">📊</div>
+                <h3>Data Analysis</h3>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" data-aos="fade-up" data-aos-anchor-placement="top-center" data-aos-offset="50">
+        <h2>Proyek Saya</h2>
+        <div class="projects-grid">
+            <div class="project-card" data-aos="fade-right" data-aos-delay="50">
+                <h3>E-Commerce Platform</h3>
+                <p>Website belanja online dengan fitur pembayaran terintegrasi.</p>
+            </div>
+            <div class="project-card" data-aos="fade-right" data-aos-delay="100">
+                <h3>Dashboard Analytics</h3>
+                <p>Dashboard untuk analisis data bisnis dengan UI modern.</p>
+            </div>
+            <div class="project-card" data-aos="fade-right" data-aos-delay="150">
+                <h3>Website Portofolio</h3>
+                <p>Portofolio digital dengan desain interaktif dan responsif.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience" data-aos="fade-up" data-aos-anchor-placement="top-center" data-aos-offset="50">
+        <h2>Pengalaman Kerja</h2>
+        <div class="experience-grid">
+            <div class="experience-card" data-aos="fade-up" data-aos-delay="50">
+                <h3>Frontend Developer</h3>
+                <p>TechStartup, 2022-2024<br>Mengembangkan antarmuka web responsif untuk aplikasi SaaS.</p>
+            </div>
+            <div class="experience-card" data-aos="fade-up" data-aos-delay="100">
+                <h3>Full-Stack Developer</h3>
+                <p>Digital Agency, 2020-2022<br>Membangun website klien dari konsep hingga produksi.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="testimonials" data-aos="fade-up" data-aos-anchor-placement="top-center" data-aos-offset="50">
+        <h2>Testimoni</h2>
+        <div class="testimonials-grid">
+            <div class="testimonial-card" data-aos="fade-up" data-aos-delay="50">
+                <p>"Max adalah pengembang yang sangat berbakat. Proyeknya selalu berkualitas tinggi!"</p>
+                <h4>- Sarah Putri, Project Manager</h4>
+            </div>
+            <div class="testimonial-card" data-aos="fade-up" data-aos-delay="100">
+                <p>"Kolaborasi dengan Max sangat menyenangkan. Desainnya modern dan fungsional."</p>
+                <h4>- Dedi Santoso, CEO Startup</h4>
+            </div>
+        </div>
+    </section>
+
+    <section id="blog" data-aos="fade-up" data-aos-anchor-placement="top-center" data-aos-offset="50">
+        <h2>Blog & Wawasan</h2>
+        <div class="blog-grid">
+            <div class="blog-card" data-aos="fade-up" data-aos-delay="50">
+                <h3>Tren Web 2025</h3>
+                <p>Menjelajahi teknologi web terbaru, dari AI hingga animasi interaktif.</p>
+            </div>
+            <div class="blog-card" data-aos="fade-up" data-aos-delay="100">
+                <h3>Optimasi Performa</h3>
+                <p>Tips untuk membuat website lebih cepat dan ramah pengguna.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" data-aos="fade-up" data-aos-anchor-placement="top-center" data-aos-offset="50">
+        <h2 data-aos="zoom-in" data-aos-delay="50">Hubungi Saya</h2>
+        <div class="contact-content">
+            <p data-aos="fade-up" data-aos-delay="100">Siap untuk kolaborasi atau diskusi proyek? Klik tombol di bawah untuk menghubungi saya langsung via WhatsApp!</p>
+            <a href="https://wa.me/6285745363245" target="_blank" class="cta" data-aos="zoom-in-up" data-aos-delay="150">
+                <i class="fab fa-whatsapp"></i> Chat via WhatsApp
+            </a>
+        </div>
+        <div class="contact-particles">
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-logo">Max Faisal Bahreizy</div>
+        <div class="footer-social">
+            <a href="https://linkedin.com/in/maxfaisal" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="https://github.com/maxfaisal" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            <a href="https://instagram.com/max_bahreizy" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://wa.me/6285745363245" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        </div>
+        <div class="footer-contact">
+            <p>Email: Bahreizymax@gmail.com</p>
+            <p>Telepon: +62 857 4536 3245</p>
+        </div>
+        <div class="footer-bottom">
+            <p class="copyright">© <script>document.write(new Date().getFullYear())</script> Max Faisal Bahreizy. All Rights Reserved.</p>
+            <p class="credit">Dibuat dengan Passion</p>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Inisialisasi AOS untuk elemen lain
+        AOS.init({
+            duration: 800,
+            easing: 'ease-out',
+            once: false,
+            mirror: true,
+            anchorPlacement: 'top-center',
+            offset: 50,
+            disable: window.innerWidth < 768
+        });
+
+        // Smooth Scroll
+        function scrollToSection(sectionId) {
+            document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Hamburger Menu
+        document.querySelector('.hamburger').addEventListener('click', () => {
+            document.querySelector('.nav-links').classList.toggle('active');
+            document.querySelector('.hamburger').textContent = document.querySelector('.nav-links').classList.contains('active') ? '✕' : '☰';
+        });
+
+        // Ripple Effect on Buttons
+        document.querySelectorAll('.cta').forEach(button => {
+            button.addEventListener('click', (e) => {
+                const ripple = document.createElement('span');
+                ripple.style.position = 'absolute';
+                ripple.style.background = 'rgba(255, 255, 255, 0.5)';
+                ripple.style.borderRadius = '50%';
+                ripple.style.width = '100px';
+                ripple.style.height = '100px';
+                ripple.style.top = `${e.offsetY}px`;
+                ripple.style.left = `${e.offsetX}px`;
+                ripple.style.transform = 'translate(-50%, -50%) scale(0)';
+                ripple.style.animation = 'rippleEffect 0.4s ease-out';
+                button.appendChild(ripple);
+                setTimeout(() => ripple.remove(), 400);
+            });
+        });
+
+        // Footer Animation with IntersectionObserver
+        const footer = document.querySelector('footer');
+        const footerObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    console.log('Footer is visible'); // Debug log
+                    footerObserver.unobserve(entry.target); // Hentikan observer setelah muncul
+                }
+            });
+        }, { threshold: 0.1 });
+        footerObserver.observe(footer);
+
+        // Add ripple and footer animation styles
+        const style = document.createElement('style');
+        style.innerHTML = `
+            @keyframes rippleEffect {
+                to { transform: translate(-50%, -50%) scale(2); opacity: 0; }
+            }
+            @media (max-width: 768px) {
+                section, .skill-item, .project-card, .experience-card, .testimonial-card, .blog-card, footer {
+                    opacity: 0;
+                    transform: translateY(20px);
+                    transition: opacity 0.5s ease, transform 0.5s ease;
+                }
+                section.visible, .skill-item.visible, .project-card.visible, .experience-card.visible, .testimonial-card.visible, .blog-card.visible, footer.visible {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // 3D Tilt Effect on Cards
+        document.querySelectorAll('.project-card, .skill-item, .experience-card, .testimonial-card, .blog-card').forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                const rotateX = (y - centerY) / 30;
+                const rotateY = (centerX - x) / 30;
+                card.style.transform = `translateY(-8px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+                card.style.transition = 'transform 0.3s ease';
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(0) rotateX(0) rotateY(0)';
+                card.style.transition = 'transform 0.3s ease';
+            });
+        });
+    </script>
+</body>
+</html>

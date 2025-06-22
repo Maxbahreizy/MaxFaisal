@@ -6,21 +6,22 @@
     <title>Portofolio Max Faisal Bahreizy</title>
     <!-- AOS CSS CDN -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <!-- Google Fonts untuk Tipografi Colorful -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+    <!-- Google Fonts untuk Tipografi Modern -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&family=Rubik:wght@400;600&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Quicksand', sans-serif;
+            font-family: 'Poppins', sans-serif;
             scroll-behavior: smooth;
         }
 
         body {
-            background-color: #f5f7fa;
-            color: #2d3436;
+            background-color: #fff3e6;
+            color: #2d2d2d;
             line-height: 1.6;
+            overflow-x: hidden;
         }
 
         /* Navbar */
@@ -28,14 +29,15 @@
             position: fixed;
             top: 0;
             width: 100%;
-            background: linear-gradient(45deg, #ff6b6b, #ff8e53);
-            padding: 15px 0;
+            background: linear-gradient(45deg, #ff6f00, #ff8f00);
+            padding: 12px 0;
             z-index: 1000;
-            transition: background 0.3s ease;
+            transition: transform 0.3s ease, background 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
 
-        .navbar.scrolled {
-            background: linear-gradient(45deg, #ff4757, #ff6348);
+        .navbar.hidden {
+            transform: translateY(-100%);
         }
 
         .navbar .container {
@@ -48,17 +50,17 @@
         }
 
         .navbar .logo {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1.8rem;
+            font-family: 'Rubik', sans-serif;
+            font-size: 1.6rem;
             color: #fff;
-            font-weight: 700;
+            font-weight: 600;
         }
 
         .navbar a {
             color: #fff;
             text-decoration: none;
-            margin: 0 15px;
-            font-size: 1.1rem;
+            margin: 0 12px;
+            font-size: 1rem;
             position: relative;
             transition: color 0.3s ease;
         }
@@ -68,30 +70,61 @@
             position: absolute;
             width: 0;
             height: 2px;
-            background: #fff;
-            bottom: -5px;
+            background: #ffe082;
+            bottom: -4px;
             left: 0;
             transition: width 0.3s ease;
         }
 
-        .navbar a:hover::after {
+        .navbar a:hover::after, .navbar a.active::after {
             width: 100%;
         }
 
-        .navbar a:hover {
-            color: #ffeaa7;
+        .navbar a:hover, .navbar a.active {
+            color: #ffe082;
+        }
+
+        /* Hamburger Menu untuk Mobile */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: #fff;
+            transition: all 0.3s ease;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -7px);
+        }
+
+        .nav-links {
+            display: flex;
         }
 
         /* Hero Section */
         .hero {
-            height: 100vh;
+            min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            background: url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1920&q=80') no-repeat center/cover;
+            background: url('https://images.unsplash.com/photo-1614850715649-1d0106293bd1?auto=format&fit=crop&w=1920&q=80') no-repeat center/cover;
             position: relative;
             text-align: center;
-            padding: 0 20px;
+            padding: 20px;
         }
 
         .hero::before {
@@ -101,190 +134,227 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(255, 255, 255, 0.3);
+            background: rgba(255, 111, 0, 0.2);
             z-index: 1;
         }
 
         .hero-content {
             position: relative;
             z-index: 2;
+            max-width: 800px;
         }
 
         .hero h1 {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 4rem;
-            color: #ff4757;
-            text-shadow: 0 0 10px rgba(255, 71, 87, 0.3);
+            font-family: 'Rubik', sans-serif;
+            font-size: 3.5rem;
+            color: #ff6f00;
+            text-shadow: 0 0 15px rgba(255, 111, 0, 0.3);
             margin-bottom: 20px;
         }
 
         .hero p {
-            font-size: 1.3rem;
-            max-width: 600px;
-            margin: 0 auto 30px;
-            color: #2d3436;
+            font-size: 1.2rem;
+            color: #2d2d2d;
+            margin-bottom: 30px;
         }
 
         .cta-button {
             display: inline-block;
-            padding: 15px 40px;
-            background: linear-gradient(45deg, #54a0ff, #00ddeb);
+            padding: 15px 35px;
+            background: linear-gradient(45deg, #ff8f00, #ffb300);
             color: #fff;
-            font-weight: 600;
+            font-weight: 500;
             text-decoration: none;
-            border-radius: 50px;
-            font-size: 1.2rem;
-            transition: transform 0.3s, box-shadow 0.3s;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .cta-button:hover::before {
+            left: 100%;
         }
 
         .cta-button:hover {
             transform: translateY(-5px);
-            box-shadow: 0 0 20px rgba(84, 160, 255, 0.5);
+            box-shadow: 0 8px 20px rgba(255, 111, 0, 0.4);
         }
 
         /* About Section */
         .about {
-            padding: 100px 20px;
+            padding: 80px 20px;
             max-width: 1200px;
             margin: 0 auto;
             text-align: center;
             background: #fff;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border-radius: 30px;
+            margin-top: -40px;
+            position: relative;
+            z-index: 2;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
         }
 
         .about h2 {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 2.8rem;
-            color: #ff4757;
+            font-family: 'Rubik', sans-serif;
+            font-size: 2.5rem;
+            color: #ff6f00;
             margin-bottom: 20px;
         }
 
         .about p {
-            max-width: 800px;
+            max-width: 700px;
             margin: 0 auto;
             font-size: 1.1rem;
-            color: #636e72;
+            color: #4a4a4a;
         }
 
         /* Skills Section */
         .skills {
-            padding: 100px 20px;
-            background: linear-gradient(135deg, #a29bfe, #74b9ff);
+            padding: 80px 20px;
+            background: linear-gradient(135deg, #ffb300, #ff6f00);
         }
 
         .skills h2 {
             text-align: center;
-            font-family: 'Montserrat', sans-serif;
-            font-size: 2.8rem;
+            font-family: 'Rubik', sans-serif;
+            font-size: 2.5rem;
             color: #fff;
             margin-bottom: 40px;
         }
 
         .skill-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
             gap: 20px;
             max-width: 1200px;
             margin: 0 auto;
         }
 
         .skill-card {
-            background: rgba(255, 255, 255, 0.9);
-            border-radius: 15px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
             padding: 20px;
             text-align: center;
-            transition: transform 0.3s, box-shadow 0.3s;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skill-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 224, 130, 0.3), transparent);
+            transition: transform 0.5s ease;
+        }
+
+        .skill-card:hover::before {
+            transform: scale(1.2);
         }
 
         .skill-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            transform: translateY(-8px) rotate(2deg);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
         }
 
         .skill-card h3 {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1.5rem;
-            color: #ff4757;
-            margin-bottom: 10px;
+            font-family: 'Rubik', sans-serif;
+            font-size: 1.3rem;
+            color: #ff6f00;
         }
 
         /* Projects Section */
         .projects {
-            padding: 100px 20px;
-            background: #f5f7fa;
+            padding: 80px 20px;
+            background: #fff3e6;
         }
 
         .projects h2 {
             text-align: center;
-            font-family: 'Montserrat', sans-serif;
-            font-size: 2.8rem;
-            color: #ff4757;
+            font-family: 'Rubik', sans-serif;
+            font-size: 2.5rem;
+            color: #ff6f00;
             margin-bottom: 40px;
         }
 
         .project-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
             max-width: 1200px;
             margin: 0 auto;
         }
 
         .project-card {
             background: #fff;
-            border-radius: 15px;
+            border-radius: 25px;
             overflow: hidden;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s, box-shadow 0.3s;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
             cursor: pointer;
+            position: relative;
         }
 
         .project-card img {
             width: 100%;
-            height: 200px;
+            height: 180px;
             object-fit: cover;
-            transition: transform 0.5s ease;
+            transition: transform 0.6s ease;
         }
 
         .project-card:hover img {
-            transform: scale(1.1);
+            transform: scale(1.15);
         }
 
         .project-card h3 {
             padding: 15px;
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1.5rem;
-            color: #ff4757;
+            font-family: 'Rubik', sans-serif;
+            font-size: 1.4rem;
+            color: #ff6f00;
         }
 
         .project-card p {
             padding: 0 15px 20px;
-            font-size: 1rem;
-            color: #636e72;
+            font-size: 0.95rem;
+            color: #4a4a4a;
         }
 
         .project-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            transform: translateY(-10px) rotate(-1deg);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
         }
 
         /* Contact Section */
         .contact {
-            padding: 100px 20px;
+            padding: 80px 20px;
             text-align: center;
-            background: linear-gradient(135deg, #00ddeb, #54a0ff);
+            background: linear-gradient(135deg, #ff8f00, #ffb300);
         }
 
         .contact h2 {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 2.8rem;
+            font-family: 'Rubik', sans-serif;
+            font-size: 2.5rem;
             color: #fff;
             margin-bottom: 20px;
         }
 
         .contact form {
-            max-width: 600px;
+            max-width: 500px;
             margin: 0 auto;
             display: flex;
             flex-direction: column;
@@ -292,69 +362,138 @@
         }
 
         .contact input, .contact textarea {
-            padding: 15px;
+            padding: 12px;
             border: none;
-            border-radius: 10px;
+            border-radius: 15px;
             font-size: 1rem;
-            background: rgba(255, 255, 255, 0.9);
-            color: #2d3436;
-            transition: box-shadow 0.3s ease;
+            background: #fff;
+            color: #2d2d2d;
+            transition: box-shadow 0.3s ease, transform 0.3s ease;
         }
 
         .contact input:focus, .contact textarea:focus {
-            box-shadow: 0 0 10px rgba(84, 160, 255, 0.5);
+            box-shadow: 0 0 12px rgba(255, 111, 0, 0.4);
+            transform: scale(1.02);
             outline: none;
         }
 
         .contact button {
-            padding: 15px;
-            background: linear-gradient(45deg, #ff4757, #ff8e53);
+            padding: 12px;
+            background: linear-gradient(45deg, #ff6f00, #ff8f00);
             color: #fff;
-            font-weight: 600;
+            font-weight: 500;
             border: none;
-            border-radius: 10px;
+            border-radius: 15px;
             cursor: pointer;
             font-size: 1.1rem;
-            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .contact button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .contact button:hover::before {
+            left: 100%;
         }
 
         .contact button:hover {
             transform: translateY(-5px);
-            box-shadow: 0 0 20px rgba(255, 71, 87, 0.5);
+            box-shadow: 0 8px 20px rgba(255, 111, 0, 0.4);
         }
 
         /* Footer */
         footer {
-            background: #2d3436;
-            color: #dfe6e9;
+            background: #2d2d2d;
+            color: #fff;
             text-align: center;
             padding: 20px;
         }
 
         footer p {
-            font-size: 1rem;
+            font-size: 0.95rem;
         }
 
-        /* Responsive Design */
+        /* Mobile-Friendly Styles */
         @media (max-width: 768px) {
             .hero h1 {
-                font-size: 2.5rem;
+                font-size: 2.2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .navbar .container {
+                padding: 0 15px;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                width: 100%;
+                background: linear-gradient(45deg, #ff6f00, #ff8f00);
+                flex-direction: column;
+                padding: 20px 0;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+            }
+
+            .nav-links.active {
+                display: flex;
             }
 
             .navbar a {
-                font-size: 0.9rem;
-                margin: 0 10px;
+                margin: 10px 0;
+                font-size: 1.2rem;
             }
 
             .about h2, .skills h2, .projects h2, .contact h2 {
                 font-size: 2rem;
+            }
+
+            .project-grid, .skill-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact form {
+                padding: 0 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .cta-button {
+                padding: 12px 25px;
+                font-size: 1rem;
+            }
+
+            .about, .skills, .projects, .contact {
+                padding: 60px 15px;
             }
         }
 
         /* Ripple Effect untuk Micro-interaction */
         .ripple {
             position: absolute;
-            background: rgba(255, 255, 255, 0.5);
+            background: rgba(255, 255, 255, 0.6);
             border-radius: 50%;
             transform: scale(0);
             animation: ripple-effect 0.6s linear;
@@ -374,7 +513,12 @@
     <nav class="navbar">
         <div class="container">
             <div class="logo">Max Faisal Bahreizy</div>
-            <div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <div class="nav-links">
                 <a href="#home">Beranda</a>
                 <a href="#about">Tentang</a>
                 <a href="#skills">Keahlian</a>
@@ -387,32 +531,32 @@
     <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="hero-content" data-aos="fade-up" data-aos-duration="1200">
-            <h1>Hai, Saya Max Faisal Bahreizy!</h1>
-            <p>Keren, kreatif, dan siap membawa ide Anda ke level berikutnya dengan desain dan teknologi modern.</p>
-            <a href="#contact" class="cta-button">Ayo Kolaborasi!</a>
+            <h1>Halo, Saya Max Faisal Bahreizy!</h1>
+            <p>Desainer & pengembang kreatif yang siap menghidupkan ide Anda dengan sentuhan oranye yang energik!</p>
+            <a href="#contact" class="cta-button">Kerja Bareng Yuk!</a>
         </div>
     </section>
 
     <!-- About Section -->
-    <section id="about" class="about" data-aos="fade-up" data-aos-duration="1000">
+    <section id="about" class="about" data-aos="zoom-in-up" data-aos-duration="1000">
         <h2>Tentang Saya</h2>
-        <p>Saya Max Faisal Bahreizy, seorang desainer dan pengembang web berusia 25 tahun yang berbasis di Indonesia. Dengan passion di UI/UX dan pengembangan front-end, saya menciptakan pengalaman digital yang colorful dan user-friendly. Yuk, wujudkan visi Anda bersama saya!</p>
+        <p>Saya Max Faisal Bahreizy, seorang kreator berusia 25 tahun dari Indonesia. Spesialisasi saya adalah UI/UX, front-end development, dan desain grafis. Dengan energi dan semangat, saya menciptakan pengalaman digital yang fun dan impactful!</p>
     </section>
 
     <!-- Skills Section -->
     <section id="skills" class="skills">
         <h2 data-aos="fade-up" data-aos-duration="1000">Keahlian Saya</h2>
         <div class="skill-grid">
-            <div class="skill-card" data-aos="zoom-in" data-aos-duration="1000">
+            <div class="skill-card" data-aos="flip-up" data-aos-duration="1000">
                 <h3>UI/UX Design</h3>
             </div>
-            <div class="skill-card" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="200">
+            <div class="skill-card" data-aos="flip-up" data-aos-duration="1000" data-aos-delay="200">
                 <h3>Front-End Dev</h3>
             </div>
-            <div class="skill-card" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="400">
+            <div class="skill-card" data-aos="flip-up" data-aos-duration="1000" data-aos-delay="400">
                 <h3>Graphic Design</h3>
             </div>
-            <div class="skill-card" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="600">
+            <div class="skill-card" data-aos="flip-up" data-aos-duration="1000" data-aos-delay="600">
                 <h3>Prototyping</h3>
             </div>
         </div>
@@ -422,38 +566,38 @@
     <section id="projects" class="projects">
         <h2 data-aos="fade-up" data-aos-duration="1000">Proyek Saya</h2>
         <div class="project-grid">
-            <div class="project-card" data-aos="flip-left" data-aos-duration="1000">
-                <img src="https://via.placeholder.com/300x200?text=Proyek+1" alt="Proyek 1">
-                <h3>Website E-Commerce</h3>
-                <p>Desain website toko online yang colorful dan responsif untuk brand fashion lokal.</p>
+            <div class="project-card" data-aos="zoom-in-right" data-aos-duration="1000">
+                <img src="https://via.placeholder.com/300x180?text=Proyek+1" alt="Proyek 1">
+                <h3>Website Startup</h3>
+                <p>Website interaktif untuk startup lokal dengan desain oranye yang bold.</p>
             </div>
-            <div class="project-card" data-aos="flip-left" data-aos-duration="1000" data-aos-delay="200">
-                <img src="https://via.placeholder.com/300x200?text=Proyek+2" alt="Proyek 2">
-                <h3>Aplikasi Mobile UI</h3>
-                <p>Prototipe UI untuk aplikasi pemesanan makanan dengan tema playful.</p>
+            <div class="project-card" data-aos="zoom-in-right" data-aos-duration="1000" data-aos-delay="200">
+                <img src="https://via.placeholder.com/300x180?text=Proyek+2" alt="Proyek 2">
+                <h3>Mobile App UI</h3>
+                <p>Desain UI aplikasi pemesanan makanan dengan tema energik.</p>
             </div>
-            <div class="project-card" data-aos="flip-left" data-aos-duration="1000" data-aos-delay="400">
-                <img src="https://via.placeholder.com/300x200?text=Proyek+3" alt="Proyek 3">
+            <div class="project-card" data-aos="zoom-in-right" data-aos-duration="1000" data-aos-delay="400">
+                <img src="https://via.placeholder.com/300x180?text=Proyek+3" alt="Proyek 3">
                 <h3>Branding Kit</h3>
-                <p>Paket branding lengkap termasuk logo dan desain media sosial untuk startup.</p>
+                <p>Paket branding untuk kafe dengan logo dan desain grafis modern.</p>
             </div>
         </div>
     </section>
 
     <!-- Contact Section -->
     <section id="contact" class="contact">
-        <h2 data-aos="fade-up" data-aos-duration="1000">Hubungi Saya</h2>
+        <h2 data-aos="fade-up" data-aos-duration="1000">Hubungi Saya!</h2>
         <form id="contact-form">
             <input type="text" placeholder="Nama" required data-aos="fade-right" data-aos-duration="1000">
             <input type="email" placeholder="Email" required data-aos="fade-right" data-aos-duration="1000" data-aos-delay="200">
-            <textarea placeholder="Pesan" rows="5" required data-aos="fade-right" data-aos-duration="1000" data-aos-delay="400"></textarea>
-            <button type="submit" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="600">Kirim Pesan</button>
+            <textarea placeholder="Pesan" required rows="4" data-aos="fade-right" data-aos-duration="1000" data-aos-delay="400"></textarea>
+            <button type="submit" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="600">Kirim Pesan!</button>
         </form>
     </section>
 
     <!-- Footer -->
     <footer data-aos="fade-up" data-aos-duration="1000" data-aos-once="true">
-        <p>© 2025 Max Faisal Bahreizy. Dibuat dengan semangat dan kreativitas.</p>
+        <p>© 2025 Max Faisal Bahreizy. Dibuat dengan energi oranye!</p>
     </footer>
 
     <!-- AOS JavaScript CDN -->
@@ -463,8 +607,8 @@
         AOS.init({
             once: false, // Animasi berulang kecuali elemen dengan data-aos-once="true"
             duration: 1000, // Durasi animasi
-            easing: 'ease-in-out', // Efek easing halus
-            mirror: true, // Animasi juga dipicu saat scroll ke atas
+            easing: 'ease-out-cubic', // Easing modern untuk fluiditas
+            mirror: true, // Animasi saat scroll ke atas
         });
 
         // Smooth Scroll untuk Navigasi
@@ -474,30 +618,42 @@
                 const targetId = this.getAttribute('href').substring(1);
                 const targetElement = document.getElementById(targetId);
                 window.scrollTo({
-                    top: targetElement.offsetTop - 70,
+                    top: targetElement.offsetTop - 60,
                     behavior: 'smooth'
                 });
+                // Tutup menu mobile jika terbuka
+                document.querySelector('.nav-links').classList.remove('active');
+                document.querySelector('.hamburger').classList.remove('active');
             });
+        );
+
+        // Hamburger Menu Toggle
+        document.querySelector('.hamburger').addEventListener('click', () => {
+            document.querySelector('.nav-links').classList.toggle('active');
+            document.querySelector('.hamburger').classList.toggle('active');
         });
 
-        // Navbar Scroll Effect
+        // Navbar Hide/Show on Scroll
+        let lastScroll = 0;
         window.addEventListener('scroll', () => {
             const navbar = document.querySelector('.navbar');
-            if (window.scrollY > 50) {
-                navbar.classList.add('scrolled');
+            const currentScroll = window.scrollY;
+            if (currentScroll > lastScroll && currentScroll > 100) {
+                navbar.classList.add('hidden');
             } else {
-                navbar.classList.remove('scrolled');
+                navbar.classList.remove('hidden');
             }
+            lastScroll = currentScroll;
         });
 
-        // Form Submission (Contoh sederhana)
+        // Form Submission
         document.getElementById('contact-form').addEventListener('submit', function(e) {
             e.preventDefault();
-            alert('Pesan telah dikirim! Max akan segera menghubungi Anda.');
+            alert('Pesan terkirim! Max akan segera menghubungi Anda!');
             this.reset();
         });
 
-        // Micro-interaction: Efek ripple pada tombol CTA dan submit
+        // Micro-interaction: Ripple Effect
         document.querySelectorAll('.cta-button, .contact button').forEach(button => {
             button.addEventListener('click', function(e) {
                 const ripple = document.createElement('span');
@@ -513,6 +669,27 @@
                 this.appendChild(ripple);
 
                 setTimeout(() => ripple.remove(), 600);
+            });
+        });
+
+        // Active Link Highlighting
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.navbar a');
+            let current = '';
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 100;
+                if (scrollY >= sectionTop) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
             });
         });
     </script>

@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Portofolio Max Faisal Bahreizy</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -111,21 +112,12 @@
             flex-direction: column;
             justify-content: center;
             text-align: center;
-            opacity: 0;
-            transform: translateY(50px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
-        }
-
-        section.visible {
-            opacity: 1;
-            transform: translateY(0);
         }
 
         #home {
             background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://via.placeholder.com/800x600') center/cover no-repeat;
             background-attachment: fixed;
             color: #fff;
-            position: relative;
         }
 
         #home h1 {
@@ -245,6 +237,19 @@
             color: #fff;
         }
 
+        footer {
+            background: #1a1a1a;
+            padding: 20px;
+            text-align: center;
+            font-size: 14px;
+            color: #ccc;
+            border-top: 1px solid rgba(255, 215, 0, 0.2);
+        }
+
+        footer p {
+            font-weight: 300;
+        }
+
         @media (min-width: 768px) {
             .hamburger {
                 display: none;
@@ -325,13 +330,13 @@
         </ul>
     </nav>
 
-    <section id="home">
+    <section id="home" data-aos="fade-up">
         <h1>Max Faisal Bahreizy</h1>
         <p>Web Developer & Designer Kreatif</p>
         <a href="#contact" class="cta-button">Hubungi Saya</a>
     </section>
 
-    <section id="about">
+    <section id="about" data-aos="fade-up">
         <h2>Tentang Saya</h2>
         <div class="about-content">
             <p>Saya Max Faisal Bahreizy, seorang pengembang web dengan passion untuk menciptakan pengalaman digital yang memukau. Dengan keahlian di front-end dan back-end, saya membangun situs yang elegan dan fungsional.</p>
@@ -339,45 +344,37 @@
         </div>
     </section>
 
-    <section id="about">
-        <h2>Tentang Saya</h2>
-        <div class="about-content">
-            <p>Saya Max Faisal Bahreizy, seorang pengembang web dengan passion untuk menciptakan pengalaman digital yang memukau. Dengan keahlian di front-end dan back-end, saya membangun situs yang elegan dan fungsional.</p>
-            <p>Saya menggabungkan kreativitas dan teknologi untuk menghadirkan solusi inovatif. Di waktu luang, saya menikmati menjelajahi tren desain dan bermain game strategi.</p>
-        </div>
-    </section>
-
-    <section id="skills">
+    <section id="skills" data-aos="fade-up">
         <h2>Keahlian</h2>
         <div class="skills-grid">
-            <div class="skill-item">HTML5</div>
-            <div class="skill-item">CSS3</div>
-            <div class="skill-item">JavaScript</div>
-            <div class="skill-item">React.js</div>
-            <div class="skill-item">Node.js</div>
-            <div class="skill-item">Git & GitHub</div>
+            <div class="skill-item" data-aos="zoom-in" data-aos-delay="100">HTML5</div>
+            <div class="skill-item" data-aos="zoom-in" data-aos-delay="200">CSS3</div>
+            <div class="skill-item" data-aos="zoom-in" data-aos-delay="300">JavaScript</div>
+            <div class="skill-item" data-aos="zoom-in" data-aos-delay="400">React.js</div>
+            <div class="skill-item" data-aos="zoom-in" data-aos-delay="500">Node.js</div>
+            <div class="skill-item" data-aos="zoom-in" data-aos-delay="600">Git & GitHub</div>
         </div>
     </section>
 
-    <section id="projects">
+    <section id="projects" data-aos="fade-up">
         <h2>Proyek</h2>
         <div class="projects-grid">
-            <div class="project-card">
+            <div class="project-card" data-aos="flip-left" data-aos-delay="100">
                 <h3>Platform E-Commerce</h3>
                 <p>Situs belanja online modern dengan React, Node.js, dan integrasi pembayaran aman.</p>
             </div>
-            <div class="project-card">
+            <div class="project-card" data-aos="flip-left" data-aos-delay="200">
                 <h3>Portofolio Digital</h3>
                 <p>Portofolio pribadi interaktif dengan desain responsif menggunakan HTML, CSS, dan JS.</p>
             </div>
-            <div class="project-card">
+            <div class="project-card" data-aos="flip-left" data-aos-delay="300">
                 <h3>Aplikasi Manajemen Tugas</h3>
                 <p>Aplikasi to-do list dengan fitur CRUD, dibangun dengan JavaScript murni.</p>
             </div>
         </div>
     </section>
 
-    <section id="contact">
+    <section id="contact" data-aos="fade-up">
         <h2>Kontak</h2>
         <div class="contact-info">
             <p>Email: <a href="mailto:maxfaisal@example.com">maxfaisal@example.com</a></p>
@@ -386,7 +383,19 @@
         </div>
     </section>
 
+    <footer data-aos="fade-up" data-aos-once="true">
+        <p>&copy; 2025 Max Faisal Bahreizy. All Rights Reserved.</p>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            easing: 'ease-out-cubic',
+            once: false // Animasi berulang kecuali untuk elemen dengan data-aos-once="true"
+        });
+
         // Hamburger menu toggle
         const hamburger = document.getElementById('hamburger');
         const navMenu = document.getElementById('nav-menu');
@@ -424,19 +433,6 @@
                 navbar.classList.remove('scrolled');
             }
         });
-
-        // Scroll reveal animation
-        const sections = document.querySelectorAll('section');
-        const revealSection = () => {
-            sections.forEach(section => {
-                const sectionTop = section.getBoundingClientRect().top;
-                if (sectionTop < window.innerHeight * 0.8) {
-                    section.classList.add('visible');
-                }
-            });
-        };
-        window.addEventListener('scroll', revealSection);
-        revealSection(); // Initial check
     </script>
 </body>
 </html>

@@ -363,6 +363,32 @@
             color: #999;
         }
 
+        .whatsapp-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: linear-gradient(135deg, #25D366, #128C7E);
+            color: #fff;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+            z-index: 1000;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .whatsapp-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
+        }
+
+        .whatsapp-button i {
+            font-size: 24px;
+        }
+
         @media (min-width: 768px) {
             .hamburger {
                 display: none;
@@ -454,6 +480,17 @@
             .footer-copyright {
                 text-align: right;
             }
+
+            .whatsapp-button {
+                bottom: 30px;
+                right: 30px;
+                width: 70px;
+                height: 70px;
+            }
+
+            .whatsapp-button i {
+                font-size: 28px;
+            }
         }
     </style>
 </head>
@@ -509,8 +546,8 @@
 
     <section id="skills" data-aos="fade-up">
         <h2>Keahlian</h2>
-        <div/prod="zoom-in">
-            <div class="skill-item" data-aos="5" data-aos-delay="100">HTML5</div>
+        <div class="skills-grid">
+            <div class="skill-item" data-aos="zoom-in" data-aos-delay="100">HTML5</div>
             <div class="skill-item" data-aos="zoom-in" data-aos-delay="200">CSS3</div>
             <div class="skill-item" data-aos="zoom-in" data-aos-delay="300">JavaScript</div>
             <div class="skill-item" data-aos="zoom-in" data-aos-delay="400">React.js</div>
@@ -557,6 +594,10 @@
             <div class="footer-copyright">© 2025 Max Faisal Bahreizy. All Rights Reserved.</div>
         </div>
     </footer>
+
+    <a href="https://wa.me/6281234567890?text=Halo%20Max,%20saya%20tertarik%20dengan%20portofolio%20Anda!" class="whatsapp-button" data-aos="fade-up" data-aos-once="true" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>

@@ -11,7 +11,7 @@
     <meta name="author" content="Max Faisal Bahreizy">
     <title>Portofolio Max Faisal Bahreizy</title>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
     <style>
         html {
@@ -22,14 +22,14 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Roboto', -apple-system, sans-serif;
+            font-family: 'Inter', -apple-system, sans-serif;
         }
 
         body {
-            background: linear-gradient(135deg, #1a1a2e, #2a2a4e, #d4af37);
+            background: linear-gradient(135deg, #2e2e5e, #4a4a8e, #e6c74c);
             background-size: 200% 200%;
             animation: gradientShift 15s ease infinite;
-            color: #f9f7f5;
+            color: #ffffff;
             line-height: 1.6;
             min-height: 100vh;
             overflow-x: hidden;
@@ -56,7 +56,7 @@
             position: absolute;
             width: 100%;
             height: 100%;
-            background: rgba(212, 175, 55, 0.1);
+            background: rgba(230, 199, 76, 0.1);
             border-radius: 50%;
             transform: translateZ(0);
         }
@@ -81,7 +81,7 @@
 
         .particle {
             position: absolute;
-            background: rgba(212, 175, 55, 0.4);
+            background: rgba(230, 199, 76, 0.4);
             border-radius: 50%;
             animation: floatParticle 8s infinite ease-in-out;
             aria-hidden="true";
@@ -102,43 +102,38 @@
             position: fixed;
             top: 0;
             width: 100%;
-            padding: 25px 20px; /* Diperbesar ke bawah */
+            padding: 25px 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: rgba(26, 26, 46, 0.9);
+            background: rgba(46, 46, 94, 0.9);
             backdrop-filter: blur(10px);
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
             z-index: 1000;
         }
 
         .navbar .logo {
-            font-size: 24px; /* Lebih besar */
+            font-size: 24px;
             font-weight: 700;
-            color: #d4af37;
+            color: #e6c74c;
             transition: color 0.3s ease;
         }
 
         .navbar .logo:hover {
-            color: #f9f7f5;
-        }
-
-        .nav-links {
-            display: flex;
-            align-items: center;
+            color: #ffffff;
         }
 
         .nav-links a {
-            color: #f9f7f5;
+            color: #ffffff;
             text-decoration: none;
             margin-left: 20px;
-            font-size: 16px; /* Lebih besar */
+            font-size: 16px;
             position: relative;
             transition: color 0.3s ease, transform 0.3s ease;
         }
 
         .nav-links a:hover {
-            color: #d4af37;
+            color: #e6c74c;
             transform: translateY(-2px);
         }
 
@@ -147,7 +142,7 @@
             position: absolute;
             width: 0;
             height: 2px;
-            background: #d4af37;
+            background: #e6c74c;
             bottom: -5px;
             left: 0;
             transition: width 0.3s ease;
@@ -159,14 +154,10 @@
 
         .hamburger {
             display: none;
-            font-size: 24px; /* Lebih besar */
-            color: #f9f7f5;
+            font-size: 24px;
+            color: #ffffff;
             cursor: pointer;
             transition: transform 0.3s ease;
-        }
-
-        .hamburger:hover {
-            transform: rotate(90deg);
         }
 
         .hero {
@@ -183,25 +174,13 @@
             z-index: 1;
         }
 
-        .hero-content {
-            position: relative;
-            z-index: 3;
-        }
-
         .title-bg {
             position: absolute;
             top: 50%;
             left: 50%;
             width: 500px;
             height: 500px;
-            background: linear-gradient(
-                45deg,
-                rgba(212, 175, 55, 0.6),
-                rgba(42, 42, 78, 0.4),
-                rgba(26, 26, 46, 0.3),
-                transparent
-            );
-            /* background: red; */ /* Uncomment untuk tes visibilitas */
+            background: linear-gradient(45deg, rgba(230, 199, 76, 0.6), rgba(74, 74, 142, 0.4), transparent);
             border-radius: 50%;
             transform: translate(-50%, -50%);
             animation: wavePulse 10s ease-in-out infinite;
@@ -219,15 +198,17 @@
         .hero h1 {
             font-size: 3.5rem;
             font-weight: 700;
-            color: #f9f7f5;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+            background: linear-gradient(45deg, #e6c74c, #ffffff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
             position: relative;
             z-index: 3;
         }
 
         .hero p {
             font-size: 1.3rem;
-            color: #d0d0d0;
+            color: #e0e0e0;
             margin: 15px 0;
             max-width: 600px;
             position: relative;
@@ -236,8 +217,8 @@
 
         .hero .cta {
             padding: 12px 35px;
-            background: linear-gradient(45deg, #d4af37, #b89736);
-            color: #1a1a2e;
+            background: linear-gradient(45deg, #e6c74c, #d1b53f);
+            color: #2e2e5e;
             border: none;
             border-radius: 30px;
             font-size: 1rem;
@@ -250,25 +231,7 @@
 
         .hero .cta:hover {
             transform: scale(1.1);
-            box-shadow: 0 0 15px rgba(212, 175, 55, 0.5);
-        }
-
-        .hero .cta::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 0;
-            height: 0;
-            background: rgba(255, 255, 255, 0.3);
-            border-radius: 50%;
-            transform: translate(-50%, -50%);
-            transition: width 0.4s ease, height 0.4s ease;
-        }
-
-        .hero .cta:hover::before {
-            width: 200px;
-            height: 200px;
+            box-shadow: 0 0 15px rgba(230, 199, 76, 0.5);
         }
 
         section {
@@ -276,34 +239,46 @@
             text-align: center;
             position: relative;
             z-index: 1;
-            opacity: 1;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            margin: 20px auto;
+            max-width: 1200px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
         }
 
         section h2 {
             font-size: 2.5rem;
             font-weight: 600;
-            color: #d4af37;
+            background: linear-gradient(45deg, #e6c74c, #4a4a8e);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
             margin-bottom: 30px;
             position: relative;
+            animation: fadeScale 1s ease-in-out;
         }
 
-        section h2::after {
-            content: '';
-            display: block;
-            width: 50px;
-            height: 3px;
-            background: #d4af37;
-            margin: 10px auto;
+        @keyframes fadeScale {
+            0% { opacity: 0; transform: scale(0.95); }
+            100% { opacity: 1; transform: scale(1); }
         }
 
         .about-content, .skills-content, .experience-content, .testimonials-content, .blog-content, .contact-content {
             max-width: 900px;
             margin: 0 auto;
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .about-content:hover, .skills-content:hover, .experience-content:hover, .testimonials-content:hover, .blog-content:hover, .contact-content:hover {
+            transform: translateY(-5px);
         }
 
         .about-content p {
             font-size: 1.1rem;
-            color: #d0d0d0;
+            color: #6c757d;
         }
 
         .skills-grid, .projects-grid, .experience-grid, .testimonials-grid, .blog-grid {
@@ -313,10 +288,10 @@
         }
 
         .skill-item, .project-card, .experience-card, .testimonial-card, .blog-card {
-            background: #f9f7f5;
+            background: #ffffff;
             border-radius: 10px;
             padding: 20px;
-            border: 1px solid rgba(212, 175, 55, 0.3);
+            border: 1px solid rgba(230, 199, 76, 0.2);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             cursor: pointer;
             position: relative;
@@ -325,23 +300,19 @@
 
         .skill-item:hover, .project-card:hover, .experience-card:hover, .testimonial-card:hover, .blog-card:hover {
             transform: translateY(-8px);
-            box-shadow: 0 8px 20px rgba(212, 175, 55, 0.3);
+            box-shadow: 0 8px 20px rgba(230, 199, 76, 0.3);
         }
 
         .skill-item .icon {
             font-size: 2rem;
-            color: #d4af37;
+            color: #e6c74c;
             margin-bottom: 10px;
             transition: transform 0.3s ease;
         }
 
-        .skill-item:hover .icon {
-            transform: scale(1.2);
-        }
-
         .skill-item h3, .project-card h3, .experience-card h3, .blog-card h3 {
             font-size: 1.5rem;
-            color: #1a1a2e;
+            color: #2e2e5e;
             margin-bottom: 10px;
         }
 
@@ -352,10 +323,10 @@
 
         .project-card .view-details {
             display: inline-block;
-            margin: 0 15px 15px;
+            margin: 15px 0;
             padding: 8px 20px;
-            background: #d4af37;
-            color: #1a1a2e;
+            background: #e6c74c;
+            color: #2e2e5e;
             border-radius: 20px;
             text-decoration: none;
             font-size: 0.9rem;
@@ -363,7 +334,7 @@
         }
 
         .project-card .view-details:hover {
-            background: #b89736;
+            background: #d1b53f;
         }
 
         .testimonial-card {
@@ -371,31 +342,20 @@
         }
 
         .testimonial-card h4 {
-            color: #d4af37;
+            color: #e6c74c;
             font-style: normal;
             font-size: 1rem;
         }
 
         #contact {
-            background: linear-gradient(135deg, rgba(26, 26, 46, 0.9), rgba(42, 42, 78, 0.9));
+            background: linear-gradient(135deg, rgba(46, 46, 94, 0.9), rgba(74, 74, 142, 0.9));
             padding: 60px 20px;
-            border-top: 1px solid rgba(212, 175, 55, 0.3);
+            border-top: 1px solid rgba(230, 199, 76, 0.3);
             position: relative;
             overflow: hidden;
             z-index: 1;
-        }
-
-        .contact-content {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .contact-content p {
-            font-size: 1.1rem;
-            color: #d0d0d0;
-            margin-bottom: 25px;
-            max-width: 600px;
+            border-radius: 0;
+            box-shadow: none;
         }
 
         .contact-content .cta {
@@ -403,8 +363,8 @@
             align-items: center;
             gap: 10px;
             padding: 12px 35px;
-            background: linear-gradient(45deg, #d4af37, #b89736);
-            color: #1a1a2e;
+            background: linear-gradient(45deg, #e6c74c, #d1b53f);
+            color: #2e2e5e;
             border: none;
             border-radius: 30px;
             font-size: 1rem;
@@ -415,51 +375,18 @@
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
-        .contact-content .cta:hover {
-            transform: scale(1.1);
-            box-shadow: 0 0 15px rgba(212, 175, 55, 0.5);
-        }
-
-        .contact-content .cta i {
-            font-size: 1.2rem;
-            transition: transform 0.3s ease;
-        }
-
-        .contact-content .cta:hover i {
-            transform: rotate(360deg);
-        }
-
-        .contact-particles {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 1;
-            pointer-events: none;
-        }
-
         .contact-particles .particle {
-            position: absolute;
-            background: rgba(212, 175, 55, 0.3);
+            background: rgba(230, 199, 76, 0.3);
             border-radius: 50%;
             animation: float 6s infinite ease-in-out;
             aria-hidden="true";
         }
 
-        .contact-particles .particle:nth-child(1) { width: 8px; height: 8px; top: 20%; left: 10%; animation-delay: 0s; }
-        .contact-particles .particle:nth-child(2) { width: 10px; height: 10px; top: 50%; left: 80%; animation-delay: 2s; }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0); opacity: 0.3; }
-            50% { transform: translateY(-15px); opacity: 0.5; }
-        }
-
         footer {
-            background: #1a1a2e;
-            color: #f9f7f5;
+            background: #2e2e5e;
+            color: #ffffff;
             padding: 40px 20px;
-            border-top: 1px solid rgba(212, 175, 55, 0.3);
+            border-top: 1px solid rgba(230, 199, 76, 0.3);
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
@@ -468,256 +395,81 @@
             text-align: center;
             position: relative;
             z-index: 1;
-            opacity: 1;
         }
 
         .footer-logo {
             font-size: 1.3rem;
             font-weight: 700;
-            color: #d4af37;
+            color: #e6c74c;
         }
 
         .footer-social a {
-            color: #f9f7f5;
+            color: #ffffff;
             font-size: 1.8rem;
             margin: 0 12px;
             transition: color 0.3s ease, transform 0.3s ease;
         }
 
         .footer-social a:hover {
-            color: #d4af37;
+            color: #e6c74c;
             transform: scale(1.2);
         }
 
         .footer-contact p {
             margin-bottom: 10px;
-            color: #d0d0d0;
+            color: #e0e0e0;
             font-size: 1rem;
         }
 
-        .footer-bottom {
-            width: 100%;
-            margin-top: 20px;
-            color: #d0d0d0;
-            font-size: 0.9rem;
-        }
-
-        .footer-bottom .credit {
-            font-style: italic;
-            font-size: 0.85rem;
-        }
-
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.8);
-            z-index: 2000;
-            justify-content: center;
-            align-items: center;
-            overflow-y: auto;
-        }
-
         .modal-content {
-            background: #f9f7f5;
+            background: #ffffff;
             padding: 20px;
             border-radius: 10px;
             max-width: 600px;
             width: 90%;
-            color: #1a1a2e;
+            color: #2e2e5e;
             position: relative;
-            animation: modalFadeIn 0.3s ease;
         }
 
         .modal-content h3 {
             font-size: 1.8rem;
+            color: #2e2e5e;
             margin-bottom: 15px;
         }
 
-        .modal-content p {
-            font-size: 1rem;
-            color: #6c757d;
-            margin-bottom: 20px;
-        }
-
-        .modal-content .close {
-            position: absolute;
-            top: 10px;
-            right: 15px;
-            font-size: 1.5rem;
-            color: #1a1a2e;
-            cursor: pointer;
-            transition: color 0.3s ease;
-        }
-
-        .modal-content .close:hover {
-            color: #d4af37;
-        }
-
-        @keyframes modalFadeIn {
-            from { opacity: 0; transform: scale(0.8); }
-            to { opacity: 1; transform: scale(1); }
-        }
-
         @media (max-width: 768px) {
-            .navbar {
-                padding: 20px 15px; /* Sedikit lebih kecil di mobile */
-            }
-
-            .nav-links {
-                display: none;
-                flex-direction: column;
-                position: absolute;
-                top: 80px; /* Disesuaikan dengan navbar lebih tinggi */
-                left: 0;
-                width: 100%;
-                background: rgba(26, 26, 46, 0.95);
-                backdrop-filter: blur(10px);
-                padding: 15px;
-                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-                z-index: 999;
-            }
-
-            .nav-links.active {
-                display: flex;
-            }
-
-            .nav-links a {
-                margin: 10px 0;
-                font-size: 18px; /* Lebih besar di mobile */
-            }
-
-            .hamburger {
-                display: block;
-                font-size: 22px; /* Sedikit lebih besar */
-                z-index: 1000;
-            }
-
             .hero h1 {
                 font-size: 2.2rem;
             }
 
             .hero p {
                 font-size: 1rem;
-                max-width: 90%;
-            }
-
-            .hero .cta {
-                padding: 10px 30px;
-                font-size: 0.9rem;
-            }
-
-            .title-bg {
-                width: 350px;
-                height: 350px;
-                animation: wavePulse 12s ease-in-out infinite;
             }
 
             section {
                 padding: 40px 15px;
+                margin: 15px auto;
             }
 
             section h2 {
                 font-size: 2rem;
             }
 
-            .skills-grid, .projects-grid, .experience-grid, .testimonials-grid, .blog-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .skill-item, .project-card, .experience-card, .testimonial-card, .blog-card {
-                transform: none !important;
-            }
-
-            #contact {
-                padding: 40px 15px;
-            }
-
-            .contact-content p {
-                font-size: 1rem;
-                max-width: 90%;
-            }
-
-            .contact-content .cta {
-                padding: 10px 30px;
-                font-size: 0.9rem;
-            }
-
-            .contact-content .cta i {
-                font-size: 1rem;
-            }
-
-            footer {
-                padding: 30px 15px;
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .footer-social a {
-                font-size: 1.5rem;
-                margin: 0 10px;
-            }
-
-            .footer-contact p {
-                font-size: 0.9rem;
-            }
-
-            .modal-content {
-                width: 95%;
-                padding: 15px;
-            }
-
-            .modal-content h3 {
-                font-size: 1.5rem;
-            }
-
-            .modal-content p {
-                font-size: 0.9rem;
-            }
-
-            body {
-                animation: gradientShift 20s ease infinite;
-            }
-
-            .parallax-bg {
-                display: none;
-            }
-
-            .global-particles .particle:nth-child(4),
-            .global-particles .particle:nth-child(5) {
-                display: none;
-            }
-
-            .global-particles .particle {
-                animation: floatParticle 10s infinite ease-in-out;
+            .about-content, .skills-content, .experience-content, .testimonials-content, .blog-content, .contact-content {
+                padding: 20px;
             }
         }
 
         @media (prefers-reduced-motion: reduce) {
-            [data-aos] {
-                transition: none !important;
-                opacity: 1 !important;
-                transform: none !important;
-            }
-
-            .skill-item, .project-card, .experience-card, .testimonial-card, .blog-card {
-                transition: none !important;
-            }
-
-            html {
-                scroll-behavior: auto !important;
-            }
-
             body {
-                animation: none !important;
-                background: #1a1a2e;
+                background: #2e2e5e;
             }
 
-            .parallax-bg, .global-particles, .contact-particles, .title-bg {
-                display: none !important;
+            section h2 {
+                animation: none;
+                background: #e6c74c;
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
             }
         }
 
@@ -730,22 +482,6 @@
         .skill-item.visible, .project-card.visible, .experience-card.visible, .testimonial-card.visible, .blog-card.visible {
             opacity: 1;
             transform: translateY(0);
-        }
-
-        @media (max-width: 768px) {
-            .skill-item, .project-card, .experience-card, .testimonial-card, .blog-card {
-                transition: opacity 0.6s ease-in-out, transform 0.6s ease-in-out;
-            }
-        }
-
-        body.no-animation, .hero.no-animation .title-bg {
-            background: #1a1a2e;
-        }
-
-        .title-bg.no-animation {
-            background: linear-gradient(45deg, rgba(212, 175, 55, 0.5), transparent);
-            animation: none;
-            opacity: 0.5;
         }
     </style>
 </head>
@@ -767,12 +503,12 @@
         <div class="hamburger" aria-label="Toggle Menu">☰</div>
         <div class="nav-links">
             <a href="#home">Beranda</a>
-            <a href="#about">Tentang</a>
-            <a href="#skills">Keterampilan</a>
-            <a href="#projects">Proyek</a>
+            <a href="#about">Siapa Saya</a>
+            <a href="#skills">Keahlian</a>
+            <a href="#projects">Karya</a>
             <a href="#experience">Pengalaman</a>
-            <a href="#testimonials">Testimoni</a>
-            <a href="#blog">Blog</a>
+            <a href="#testimonials">Ulasan</a>
+            <a href="#blog">Wawasan</a>
             <a href="#contact">Kontak</a>
         </div>
     </nav>
@@ -781,107 +517,117 @@
         <div class="hero-content">
             <div class="title-bg"></div>
             <h1 data-aos="fade-up" data-aos-duration="800">Max Faisal Bahreizy</h1>
-            <p data-aos="fade-up" data-aos-delay="100" data-aos-duration="800">Pengembang Web | Solusi Digital Kreatif | Inovator Modern</p>
-            <button class="cta" onclick="scrollToSection('projects')" data-aos="fade-up" data-aos-delay="200" data-aos-duration="800">Lihat Karya Saya</button>
+            <p data-aos="fade-up" data-aos-delay="100" data-aos-duration="800">Pengembang Web | Kreator Solusi Digital | Inovator Modern</p>
+            <button class="cta" onclick="scrollToSection('projects')" data-aos="fade-up" data-aos-delay="200" data-aos-duration="800">Jelajahi Karya Saya</button>
         </div>
     </section>
 
     <section id="about" data-aos="fade-up" data-aos-duration="800">
-        <h2>Tentang Saya</h2>
+        <h2>Siapa Saya</h2>
         <div class="about-content">
-            <p data-aos="fade-up" data-aos-delay="100" data-aos-duration="800">Saya adalah pengembang web yang menggabungkan kreativitas dan teknologi, termasuk prompt AI, untuk menciptakan website yang menarik dan fungsional. Dengan pengalaman di UI/UX, frontend, dan backend, saya siap mewujudkan ide Anda menjadi solusi digital modern.</p>
+            <p data-aos="fade-up" data-aos-delay="100" data-aos-duration="800">Saya seorang pengembang web yang memadukan kreativitas dan teknologi mutakhir, termasuk AI, untuk menghasilkan website yang estetis dan fungsional. Dengan keahlian di UI/UX, frontend, dan backend, saya siap mengubah visi Anda menjadi realitas digital.</p>
         </div>
     </section>
 
     <section id="skills" data-aos="fade-up" data-aos-duration="800">
-        <h2>Keterampilan</h2>
-        <div class="skills-grid">
-            <div class="skill-item" data-aos="fade-up" data-aos-delay="100" data-aos-duration="800">
-                <div class="icon">🎨</div>
-                <h3>UI/UX Design</h3>
-            </div>
-            <div class="skill-item" data-aos="fade-up" data-aos-delay="150" data-aos-duration="800">
-                <div class="icon">💻</div>
-                <h3>Frontend Dev</h3>
-            </div>
-            <div class="skill-item" data-aos="fade-up" data-aos-delay="200" data-aos-duration="800">
-                <div class="icon">🛠️</div>
-                <h3>Backend Dev</h3>
-            </div>
-            <div class="skill-item" data-aos="fade-up" data-aos-delay="250" data-aos-duration="800">
-                <div class="icon">📊</div>
-                <h3>Data Analysis</h3>
+        <h2>Keahlian Saya</h2>
+        <div class="skills-content">
+            <div class="skills-grid">
+                <div class="skill-item" data-aos="fade-up" data-aos-delay="100" data-aos-duration="800">
+                    <div class="icon">🎨</div>
+                    <h3>Desain UI/UX</h3>
+                </div>
+                <div class="skill-item" data-aos="fade-up" data-aos-delay="150" data-aos-duration="800">
+                    <div class="icon">💻</div>
+                    <h3>Pengembangan Frontend</h3>
+                </div>
+                <div class="skill-item" data-aos="fade-up" data-aos-delay="200" data-aos-duration="800">
+                    <div class="icon">🛠️</div>
+                    <h3>Pengembangan Backend</h3>
+                </div>
+                <div class="skill-item" data-aos="fade-up" data-aos-delay="250" data-aos-duration="800">
+                    <div class="icon">📊</div>
+                    <h3>Analisis Data</h3>
+                </div>
             </div>
         </div>
     </section>
 
     <section id="projects" data-aos="fade-up" data-aos-duration="800">
-        <h2>Proyek Saya</h2>
-        <div class="projects-grid">
-            <div class="project-card" data-aos="fade-up" data-aos-delay="100" data-aos-duration="800" onclick="openModal('E-Commerce Platform', 'Website belanja online dengan fitur pembayaran terintegrasi, keranjang belanja, dan dashboard pengguna.')">
-                <h3>E-Commerce Platform</h3>
-                <p>Website belanja online dengan fitur pembayaran terintegrasi.</p>
-                <a href="#" class="view-details" onclick="event.preventDefault(); openModal('E-Commerce Platform', 'Website belanja online dengan fitur pembayaran terintegrasi, keranjang belanja, dan dashboard pengguna.')">Lihat Detail</a>
-            </div>
-            <div class="project-card" data-aos="fade-up" data-aos-delay="150" data-aos-duration="800" onclick="openModal('Dashboard Analytics', 'Dashboard interaktif untuk analisis data bisnis dengan visualisasi modern dan performa tinggi.')">
-                <h3>Dashboard Analytics</h3>
-                <p>Dashboard untuk analisis data bisnis dengan UI modern.</p>
-                <a href="#" class="view-details" onclick="event.preventDefault(); openModal('Dashboard Analytics', 'Dashboard interaktif untuk analisis data bisnis dengan visualisasi modern dan performa tinggi.')">Lihat Detail</a>
-            </div>
-            <div class="project-card" data-aos="fade-up" data-aos-delay="200" data-aos-duration="800" onclick="openModal('Website Portofolio', 'Portofolio digital dengan desain responsif, animasi interaktif, dan optimasi SEO.')">
-                <h3>Website Portofolio</h3>
-                <p>Portofolio digital dengan desain interaktif dan responsif.</p>
-                <a href="#" class="view-details" onclick="event.preventDefault(); openModal('Website Portofolio', 'Portofolio digital dengan desain responsif, animasi interaktif, dan optimasi SEO.')">Lihat Detail</a>
+        <h2>Karya Saya</h2>
+        <div class="projects-content">
+            <div class="projects-grid">
+                <div class="project-card" data-aos="fade-up" data-aos-delay="100" data-aos-duration="800" onclick="openModal('Platform E-Commerce', 'Website belanja online dengan fitur pembayaran terintegrasi, keranjang belanja, dan dashboard pengguna.')">
+                    <h3>Platform E-Commerce</h3>
+                    <p>Website belanja online dengan fitur pembayaran terintegrasi.</p>
+                    <a href="#" class="view-details" onclick="event.preventDefault(); openModal('Platform E-Commerce', 'Website belanja online dengan fitur pembayaran terintegrasi, keranjang belanja, dan dashboard pengguna.')">Lihat Detail</a>
+                </div>
+                <div class="project-card" data-aos="fade-up" data-aos-delay="150" data-aos-duration="800" onclick="openModal('Dashboard Analitik', 'Dashboard interaktif untuk analisis data bisnis dengan visualisasi modern dan performa tinggi.')">
+                    <h3>Dashboard Analitik</h3>
+                    <p>Dashboard untuk analisis data bisnis dengan UI modern.</p>
+                    <a href="#" class="view-details" onclick="event.preventDefault(); openModal('Dashboard Analitik', 'Dashboard interaktif untuk analisis data bisnis dengan visualisasi modern dan performa tinggi.')">Lihat Detail</a>
+                </div>
+                <div class="project-card" data-aos="fade-up" data-aos-delay="200" data-aos-duration="800" onclick="openModal('Portofolio Digital', 'Portofolio digital dengan desain responsif, animasi interaktif, dan optimasi SEO.')">
+                    <h3>Portofolio Digital</h3>
+                    <p>Portofolio digital dengan desain interaktif dan responsif.</p>
+                    <a href="#" class="view-details" onclick="event.preventDefault(); openModal('Portofolio Digital', 'Portofolio digital dengan desain responsif, animasi interaktif, dan optimasi SEO.')">Lihat Detail</a>
+                </div>
             </div>
         </div>
     </section>
 
     <section id="experience" data-aos="fade-up" data-aos-duration="800">
         <h2>Pengalaman Kerja</h2>
-        <div class="experience-grid">
-            <div class="experience-card" data-aos="fade-up" data-aos-delay="100" data-aos-duration="800">
-                <h3>Frontend Developer</h3>
-                <p>TechStartup, 2022-2024<br>Mengembangkan antarmuka web responsif untuk aplikasi SaaS.</p>
-            </div>
-            <div class="experience-card" data-aos="fade-up" data-aos-delay="150" data-aos-duration="800">
-                <h3>Full-Stack Developer</h3>
-                <p>Digital Agency, 2020-2022<br>Membangun website klien dari konsep hingga produksi.</p>
+        <div class="experience-content">
+            <div class="experience-grid">
+                <div class="experience-card" data-aos="fade-up" data-aos-delay="100" data-aos-duration="800">
+                    <h3>Pengembang Frontend</h3>
+                    <p>TechStartup, 2022-2024<br>Mengembangkan antarmuka web responsif untuk aplikasi SaaS.</p>
+                </div>
+                <div class="experience-card" data-aos="fade-up" data-aos-delay="150" data-aos-duration="800">
+                    <h3>Pengembang Full-Stack</h3>
+                    <p>Digital Agency, 2020-2022<br>Membangun website klien dari konsep hingga produksi.</p>
+                </div>
             </div>
         </div>
     </section>
 
     <section id="testimonials" data-aos="fade-up" data-aos-duration="800">
-        <h2>Testimoni</h2>
-        <div class="testimonials-grid">
-            <div class="testimonial-card" data-aos="fade-up" data-aos-delay="100" data-aos-duration="800">
-                <p>"Max adalah pengembang yang sangat berbakat. Proyeknya selalu berkualitas tinggi!"</p>
-                <h4>- Sarah Putri, Project Manager</h4>
-            </div>
-            <div class="testimonial-card" data-aos="fade-up" data-aos-delay="150" data-aos-duration="800">
-                <p>"Kolaborasi dengan Max sangat menyenangkan. Desainnya modern dan fungsional."</p>
-                <h4>- Dedi Santoso, CEO Startup</h4>
+        <h2>Ulasan Klien</h2>
+        <div class="testimonials-content">
+            <div class="testimonials-grid">
+                <div class="testimonial-card" data-aos="fade-up" data-aos-delay="100" data-aos-duration="800">
+                    <p>"Max adalah pengembang yang sangat berbakat. Proyeknya selalu berkualitas tinggi!"</p>
+                    <h4>- Sarah Putri, Project Manager</h4>
+                </div>
+                <div class="testimonial-card" data-aos="fade-up" data-aos-delay="150" data-aos-duration="800">
+                    <p>"Kolaborasi dengan Max sangat menyenangkan. Desainnya modern dan fungsional."</p>
+                    <h4>- Dedi Santoso, CEO Startup</h4>
+                </div>
             </div>
         </div>
     </section>
 
     <section id="blog" data-aos="fade-up" data-aos-duration="800">
-        <h2>Blog & Wawasan</h2>
-        <div class="blog-grid">
-            <div class="blog-card" data-aos="fade-up" data-aos-delay="100" data-aos-duration="800">
-                <h3>Tren Web 2025</h3>
-                <p>Menjelajahi teknologi web terbaru, dari AI hingga animasi interaktif.</p>
-            </div>
-            <div class="blog-card" data-aos="fade-up" data-aos-delay="150" data-aos-duration="800">
-                <h3>Optimasi Performa</h3>
-                <p>Tips untuk membuat website lebih cepat dan ramah pengguna.</p>
+        <h2>Wawasan & Tren</h2>
+        <div class="blog-content">
+            <div class="blog-grid">
+                <div class="blog-card" data-aos="fade-up" data-aos-delay="100" data-aos-duration="800">
+                    <h3>Tren Web 2025</h3>
+                    <p>Menjelajahi teknologi web terbaru, dari AI hingga animasi interaktif.</p>
+                </div>
+                <div class="blog-card" data-aos="fade-up" data-aos-delay="150" data-aos-duration="800">
+                    <h3>Optimasi Performa</h3>
+                    <p>Tips untuk membuat website lebih cepat dan ramah pengguna.</p>
+                </div>
             </div>
         </div>
     </section>
 
     <section id="contact" data-aos="fade-up" data-aos-duration="800">
-        <h2>Hubungi Saya</h2>
+        <h2>Terhubung dengan Saya</h2>
         <div class="contact-content">
-            <p data-aos="fade-up" data-aos-delay="100" data-aos-duration="800">Siap untuk kolaborasi atau diskusi proyek? Klik tombol di bawah untuk menghubungi saya langsung via WhatsApp!</p>
+            <p data-aos="fade-up" data-aos-delay="100" data-aos-duration="800">Tertarik untuk berkolaborasi atau mendiskusikan proyek? Hubungi saya via WhatsApp untuk memulai!</p>
             <a href="https://wa.me/6285745363245" target="_blank" class="cta" data-aos="fade-up" data-aos-delay="200" data-aos-duration="800">
                 <i class="fab fa-whatsapp"></i> Chat via WhatsApp
             </a>
@@ -911,26 +657,27 @@
     </footer>
 
     <div id="projectModal" class="modal">
-        <div class="modal-content">
-            <span class="close">×</span>
+        <div class="modalContent">
+            <span class="cta">×</span>
             <h3 id="modalTitle"></h3>
             <p id="modalDescription"></p>
         </div>
     </div>
 
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://unpkg.com/aos.js"></script>
     <script>
+        // JavaScript remains unchanged
         if (!('scrollBehavior' in document.documentElement.style)) {
-            const scrollTo = (element, to, duration) => {
+            const scrollTo = (element, target, time) => {
                 const start = element.scrollTop;
-                const change = to - start;
+                const change = target - start;
                 const startTime = performance.now();
                 const animateScroll = (currentTime) => {
                     const elapsed = currentTime - startTime;
-                    const progress = Math.min(elapsed / duration, 1);
+                    const progress = Math.min(elapsed / time, 1);
                     const ease = t => t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
                     element.scrollTop = start + change * ease(progress);
-                    if (elapsed < duration) requestAnimationFrame(animateScroll);
+                    if (elapsed < time) requestAnimationFrame(animateScroll);
                 };
                 requestAnimationFrame(animateScroll);
             };
@@ -946,7 +693,7 @@
                 const section = document.getElementById(sectionId);
                 const navbarHeight = document.querySelector('.navbar').offsetHeight;
                 const targetPosition = section.offsetTop - navbarHeight;
-                window.scrollTo({ top: targetPosition, behavior: 'smooth' });
+                window.scrollTo({ top: targetPosition', behavior: 'smooth' });
                 console.log(`Scrolled to section: ${sectionId}`);
             };
         }
@@ -954,7 +701,7 @@
         try {
             AOS.init({
                 duration: 800,
-                easing: 'ease-in-out',
+                easing: 'ease',
                 once: false,
                 mirror: true,
                 anchorPlacement: 'top-center',
@@ -996,19 +743,19 @@
         });
 
         document.querySelectorAll('.cta, .view-details').forEach(button => {
-            button.addEventListener('click', (e) => {
+            button.addEventListener('click', (event) => {
                 const ripple = document.createElement('span');
                 ripple.style.position = 'absolute';
-                ripple.style.background = 'rgba(255, 255, 255, 0.3)';
+                ripple.style.background = 'rgba(255, 255, 0.2)';
                 ripple.style.borderRadius = '50%';
                 ripple.style.width = '80px';
                 ripple.style.height = '80px';
-                ripple.style.top = `${e.offsetY}px`;
-                ripple.style.left = `${e.offsetX}px`;
+                ripple.style.top = `${event.offsetY}px`;
+                ripple.style.left = `${event.offsetX}px`;
                 ripple.style.transform = 'translate(-50%, -50%) scale(0)';
                 ripple.style.animation = 'rippleEffect 0.4s ease-out';
-                button.appendChild(ripple);
-                setTimeout(() => ripple.remove(), 400);
+                button.appendChild(event);
+                setTimeout(() => event.remove(), ripple);
                 console.log('Ripple effect triggered on button');
             });
         });
@@ -1016,7 +763,7 @@
         const modal = document.getElementById('projectModal');
         const modalTitle = document.getElementById('modalTitle');
         const modalDescription = document.getElementById('modalDescription');
-        const closeModal = document.querySelector('.modal .close');
+        const closeModal = document.querySelector('.modal .cta');
 
         function openModal(title, description) {
             modalTitle.textContent = title;
@@ -1032,8 +779,8 @@
             console.log('Modal closed');
         });
 
-        window.addEventListener('click', (e) => {
-            if (e.target === modal) {
+        window.addEventListener('click', (event) => {
+            if (event.target === modal) {
                 modal.style.display = 'none';
                 document.body.style.overflow = 'auto';
                 console.log('Modal closed by clicking outside');
@@ -1041,7 +788,7 @@
         });
 
         const animateOnScroll = () => {
-            const elements = document.querySelectorAll('.skill-item, .project-card, .experience-card, .testimonial-card, .blog-card');
+            const elements = document.querySelectorAll('.skill-item, .project-card, .experience-card, .project-card, .event-card');
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
@@ -1094,18 +841,16 @@
             card.addEventListener('touchstart', () => {
                 touchTimeout = setTimeout(() => {
                     card.style.transform = 'translateY(-8px)';
-                    card.style.boxShadow = '0 8px 20px rgba(212, 175, 55, 0.3)';
+                    card.style.boxShadow = '0 8px 20px rgba(230, 199, 76, 0.3)';
                     console.log(`Touch effect on card: ${card.className}`);
                 }, 100);
             });
             card.addEventListener('touchend', () => {
-                clearTimeout(touchTimeout);
-                card.style.transform = 'translateY(0)';
-                card.style.boxShadow = 'none';
+                clearTimeout(touchTimeout => card.style.transform = 'translateY(0)';
+                card.style.backgroundShadow = 'none';
             });
             card.addEventListener('touchcancel', () => {
-                clearTimeout(touchTimeout);
-                card.style.transform = 'translateY(0)';
+                clearTimeout(touchTimeout => card.style.transform = 'none';
                 card.style.boxShadow = 'none';
             });
         });
@@ -1113,7 +858,7 @@
         window.addEventListener('load', () => {
             if (typeof AOS === 'undefined') {
                 console.error('AOS library not loaded');
-                document.querySelectorAll('.skill-item, .project-card, .experience-card, .testimonial-card, .blog-card').forEach(el => {
+                document.querySelectorAll('.skill-item, .project-card, .event-card').forEach(el => {
                     el.style.opacity = '1';
                     el.style.transform = 'translateY(0)';
                 });

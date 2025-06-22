@@ -4,567 +4,281 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portofolio Max Faisal Bahreizy</title>
-    <!-- AOS CSS -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" onerror="this.href='aos.css'">
-    <!-- Font Fallback -->
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
-        * {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
-        }
-    </style>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            scroll-behavior: smooth;
-            -webkit-tap-highlight-color: transparent;
+            font-family: Arial, sans-serif;
         }
 
         body {
-            background-color: #fef7e8;
-            color: #222;
-            line-height: 1.5;
-            font-size: 14px;
-            overflow-x: hidden;
+            background-color: #f4f4f4;
+            color: #333;
+            line-height: 1.6;
         }
 
-        /* Bottom Navigation */
-        .bottom-nav {
+        .navbar {
+            background-color: #2c3e50;
+            padding: 15px;
             position: fixed;
-            bottom: 0;
             width: 100%;
-            background: #fff;
-            display: flex;
-            justify-content: space-around;
-            padding: 10px 0;
-            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+            top: 0;
             z-index: 1000;
         }
 
-        .bottom-nav a {
-            color: #666;
+        .navbar .logo {
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
             text-decoration: none;
-            font-size: 0.8rem;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 4px;
-            transition: color 0.3s ease;
         }
 
-        .bottom-nav a.active, .bottom-nav a:hover {
-            color: #ff6f00;
-        }
-
-        .bottom-nav a::before {
-            content: '';
+        .hamburger {
             display: block;
-            width: 24px;
-            height: 24px;
-            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm0 18a8 8 0 1 1 0-16 8 8 0 0 1 0 16z"/></svg>') no-repeat center/cover;
-            opacity: 0.5;
+            cursor: pointer;
+            float: right;
         }
 
-        .bottom-nav a.active::before, .bottom-nav a:hover::before {
-            opacity: 1;
+        .hamburger div {
+            width: 25px;
+            height: 3px;
+            background-color: white;
+            margin: 5px;
+            transition: all 0.3s ease;
         }
 
-        /* Hero Section */
-        .hero {
-            min-height: 70vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: linear-gradient(135deg, #ff8f00, #ffb300);
-            text-align: center;
-            padding: 20px 15px;
-            border-bottom-left-radius: 30px;
-            border-bottom-right-radius: 30px;
-        }
-
-        .hero-content {
-            max-width: 100%;
-            opacity: 1;
-        }
-
-        .hero h1 {
-            font-family: 'Inter', sans-serif;
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: #fff;
-            margin-bottom: 10px;
-        }
-
-        .hero p {
-            font-size: 0.9rem;
-            color: #fff;
-            margin-bottom: 20px;
-        }
-
-        .cta-button {
-            display: inline-block;
-            padding: 12px 30px;
-            background: #fff;
-            color: #ff6f00;
-            font-weight: 600;
-            text-decoration: none;
-            border-radius: 25px;
-            font-size: 0.9rem;
-            position: relative;
-            overflow: hidden;
-            transition: transform 0.3s ease;
-        }
-
-        .cta-button::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
+        .nav-menu {
+            display: none;
+            list-style: none;
+            background-color: #2c3e50;
             width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-            transition: left 0.4s ease;
-        }
-
-        .cta-button:hover::before {
-            left: 100%;
-        }
-
-        .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-        }
-
-        /* About Section */
-        .about {
-            padding: 30px 15px;
-            background: #fff;
-            border-radius: 20px;
-            margin: 15px;
+            position: absolute;
+            top: 60px;
+            left: 0;
             text-align: center;
         }
 
-        .about h2 {
-            font-family: 'Inter', sans-serif;
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: #ff6f00;
-            margin-bottom: 10px;
+        .nav-menu.active {
+            display: block;
         }
 
-        .about p {
-            font-size: 0.85rem;
-            color: #444;
+        .nav-menu li {
+            padding: 15px;
         }
 
-        /* Skills Section */
-        .skills {
-            padding: 30px 15px;
-            background: #fef7e8;
+        .nav-menu li a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
         }
 
-        .skills h2 {
-            text-align: center;
-            font-family: 'Inter', sans-serif;
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: #ff6f00;
-            margin-bottom: 15px;
+        .nav-menu li a:hover {
+            color: #3498db;
         }
 
-        .skill-grid {
+        section {
+            padding: 80px 20px;
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
-            gap: 10px;
-            max-width: 100%;
+            justify-content: center;
+            text-align: center;
+        }
+
+        #home {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://via.placeholder.com/1500x800') center/cover no-repeat;
+            color: white;
+        }
+
+        #home h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        #home p {
+            font-size: 18px;
+        }
+
+        h2 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+
+        .about-content p {
+            max-width: 600px;
+            margin: 0 auto 20px;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            gap: 15px;
+            max-width: 600px;
             margin: 0 auto;
         }
 
-        .skill-card {
-            background: #fff;
-            border-radius: 15px;
-            padding: 12px;
-            text-align: center;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            touch-action: manipulation;
+        .skill-item {
+            background-color: #3498db;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 16px;
         }
 
-        .skill-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .skill-card h3 {
-            font-family: 'Inter', sans-serif;
-            font-size: 1rem;
-            font-weight: 600;
-            color: #ff6f00;
-        }
-
-        /* Projects Section */
-        .projects {
-            padding: 30px 15px;
-            background: #fef7e8;
-        }
-
-        .projects h2 {
-            text-align: center;
-            font-family: 'Inter', sans-serif;
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: #ff6f00;
-            margin-bottom: 15px;
-        }
-
-        .project-grid {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            max-width: 100%;
+        .projects-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            max-width: 600px;
             margin: 0 auto;
         }
 
         .project-card {
-            background: #fff;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
-            touch-action: manipulation;
-        }
-
-        .project-card img {
-            width: 100%;
-            height: 120px;
-            object-fit: cover;
-            transition: transform 0.4s ease;
-        }
-
-        .project-card:hover img {
-            transform: scale(1.05);
+            background-color: white;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            text-align: left;
         }
 
         .project-card h3 {
-            padding: 10px;
-            font-family: 'Inter', sans-serif;
-            font-size: 1rem;
-            font-weight: 600;
-            color: #ff6f00;
-        }
-
-        .project-card p {
-            padding: 0 10px 10px;
-            font-size: 0.8rem;
-            color: #444;
-        }
-
-        .project-card:hover {
-            transform: translateY(-4px);
-        }
-
-        /* Contact Section */
-        .contact {
-            padding: 30px 15px;
-            background: linear-gradient(135deg, #ff8f00, #ffb300);
-            border-top-left-radius: 30px;
-            border-top-right-radius: 30px;
-            text-align: center;
-        }
-
-        .contact h2 {
-            font-family: 'Inter', sans-serif;
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: #fff;
             margin-bottom: 10px;
+            color: #2c3e50;
         }
 
-        .contact form {
-            max-width: 300px;
-            margin: 0 auto;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
+        .contact-info p {
+            margin-bottom: 15px;
+            font-size: 16px;
         }
 
-        .contact input, .contact textarea {
-            padding: 10px;
-            border: none;
-            border-radius: 10px;
-            font-size: 0.85rem;
-            background: #fff;
-            color: #222;
+        .contact-info a {
+            color: #3498db;
+            text-decoration: none;
         }
 
-        .contact input:focus, .contact textarea:focus {
-            box-shadow: 0 0 6px rgba(255, 111, 0, 0.3);
-            outline: none;
+        .contact-info a:hover {
+            text-decoration: underline;
         }
 
-        .contact button {
-            padding: 10px;
-            background: #fff;
-            color: #ff6f00;
-            font-weight: 600;
-            border: none;
-            border-radius: 10px;
-            cursor: pointer;
-            font-size: 0.9rem;
-            transition: transform 0.3s ease;
-        }
-
-        .contact button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-        }
-
-        /* Footer */
-        footer {
-            background: #222;
-            color: #fff;
-            text-align: center;
-            padding: 10px;
-            margin-bottom: 60px; /* Space for bottom nav */
-        }
-
-        footer p {
-            font-size: 0.8rem;
-        }
-
-        /* Desktop Adjustments */
         @media (min-width: 768px) {
-            body {
-                font-size: 16px;
-            }
-
-            .bottom-nav {
+            .hamburger {
                 display: none;
             }
 
-            .hero h1 {
-                font-size: 2.2rem;
+            .nav-menu {
+                display: flex !important;
+                position: static;
+                top: 0;
+                width: auto;
+                float: right;
+                background-color: transparent;
             }
 
-            .hero p {
-                font-size: 1rem;
+            .nav-menu li {
+                display: inline-block;
+                padding: 0 15px;
             }
 
-            .about h2, .skills h2, .projects h2, .contact h2 {
-                font-size: 1.8rem;
-            }
-
-            .skill-grid, .project-grid {
-                flex-direction: row;
-                flex-wrap: wrap;
-                gap: 15px;
-            }
-
-            .skill-card, .project-card {
-                flex: 1 1 calc(50% - 15px);
-            }
-
-            .contact form {
-                max-width: 400px;
-            }
-
-            footer {
-                margin-bottom: 0;
-            }
-        }
-
-        @media (min-width: 1024px) {
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-
-            .skill-card, .project-card {
-                flex: 1 1 calc(33.33% - 15px);
-            }
-
-            .about, .skills, .projects, .contact {
-                padding: 40px 20px;
-            }
-        }
-
-        /* Ripple Effect */
-        .ripple {
-            position: absolute;
-            background: rgba(255, 111, 0, 0.5);
-            border-radius: 50%;
-            transform: scale(0);
-            animation: ripple-effect 0.6s linear;
-            pointer-events: none;
-        }
-
-        @keyframes ripple-effect {
-            to {
-                transform: scale(4);
-                opacity: 0;
+            .projects-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
         }
     </style>
 </head>
 <body>
-    <!-- Bottom Navigation -->
-    <nav class="bottom-nav">
-        <a href="#home" class="active">Beranda</a>
-        <a href="#about">Tentang</a>
-        <a href="#skills">Keahlian</a>
-        <a href="#projects">Proyek</a>
-        <a href="#contact">Kontak</a>
+    <nav class="navbar">
+        <a href="#home" class="logo">Max Faisal</a>
+        <div class="hamburger" id="hamburger">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <ul class="nav-menu" id="nav-menu">
+            <li><a href="#home">Beranda</a></li>
+            <li><a href="#about">Tentang</a></li>
+            <li><a href="#skills">Keahlian</a></li>
+            <li><a href="#projects">Proyek</a></li>
+            <li><a href="#contact">Kontak</a></li>
+        </ul>
     </nav>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="hero-content" data-aos="fade-up" data-aos-duration="800">
-            <h1>Halo, Saya Max!</h1>
-            <p>Keren, energik, dan siap wujudkan ide Anda dengan desain oranye!</p>
-            <a href="#contact" class="cta-button">Ayo Kolaborasi!</a>
-        </div>
+    <section id="home">
+        <h1>Max Faisal Bahreizy</h1>
+        <p>Web Developer & Designer</p>
     </section>
 
-    <!-- About Section -->
-    <section id="about" class="about" data-aos="fade-up" data-aos-duration="800">
+    <section id="about">
         <h2>Tentang Saya</h2>
-        <p>Saya Max Faisal Bahreizy, 25 tahun, kreator asal Indonesia. Spesialis UI/UX, front-end, dan desain grafis. Dengan vibe oranye, saya bikin pengalaman digital yang seru!</p>
+        <div class="about-content">
+            <p>Halo, saya Max Faisal Bahreizy, seorang pengembang web yang bersemangat dalam menciptakan situs web yang responsif dan user-friendly. Saya memiliki pengalaman dalam pengembangan front-end dan back-end serta senang belajar teknologi baru.</p>
+            <p>Saya suka menggabungkan kreativitas dan logika untuk menghasilkan solusi digital yang inovatif. Di waktu luang, saya menikmati membaca buku teknologi dan bermain game.</p>
+        </div>
     </section>
 
-    <!-- Skills Section -->
-    <section id="skills" class="skills">
-        <h2 data-aos="fade-up" data-aos-duration="800">Keahlian Saya</h2>
-        <div class="skill-grid">
-            <div class="skill-card" data-aos="zoom-in" data-aos-duration="800">
-                <h3>UI/UX Design</h3>
+    <section id="skills">
+        <h2>Keahlian</h2>
+        <div class="skills-grid">
+            <div class="skill-item">HTML</div>
+            <div class="skill-item">CSS</div>
+            <div class="skill-item">JavaScript</div>
+            <div class="skill-item">React</div>
+            <div class="skill-item">Node.js</div>
+            <div class="skill-item">Git</div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <h2>Proyek</h2>
+        <div class="projects-grid">
+            <div class="project-card">
+                <h3>Website E-Commerce</h3>
+                <p>Membangun platform e-commerce dengan React dan Node.js, dilengkapi fitur keranjang belanja dan pembayaran online.</p>
             </div>
-            <div class="skill-card" data-aos="zoom-in" data-aos-duration="800" data-aos-delay="100">
-                <h3>Front-End Dev</h3>
+            <div class="project-card">
+                <h3>Portofolio Pribadi</h3>
+                <p>Merancang dan mengembangkan portofolio responsif menggunakan HTML, CSS, dan JavaScript.</p>
             </div>
-            <div class="skill-card" data-aos="zoom-in" data-aos-duration="800" data-aos-delay="200">
-                <h3>Graphic Design</h3>
-            </div>
-            <div class="skill-card" data-aos="zoom-in" data-aos-duration="800" data-aos-delay="300">
-                <h3>Prototyping</h3>
+            <div class="project-card">
+                <h3>Aplikasi To-Do List</h3>
+                <p>Aplikasi manajemen tugas berbasis web dengan fitur CRUD menggunakan Vanilla JavaScript.</p>
             </div>
         </div>
     </section>
 
-    <!-- Projects Section -->
-    <section id="projects" class="projects">
-        <h2 data-aos="fade-up" data-aos-duration="800">Proyek Saya</h2>
-        <div class="project-grid">
-            <div class="project-card" data-aos="fade-right" data-aos-duration="800">
-                <img src="https://via.placeholder.com/300x120?text=Proyek+1" alt="Proyek 1">
-                <h3>Website Startup</h3>
-                <p>Website bold untuk startup dengan tema oranye.</p>
-            </div>
-            <div class="project-card" data-aos="fade-right" data-aos-duration="800" data-aos-delay="100">
-                <img src="https://via.placeholder.com/300x120?text=Proyek+2" alt="Proyek 2">
-                <h3>Mobile App UI</h3>
-                <p>UI aplikasi makanan dengan vibe energik.</p>
-            </div>
-            <div class="project-card" data-aos="fade-right" data-aos-duration="800" data-aos-delay="200">
-                <img src="https://via.placeholder.com/300x120?text=Proyek+3" alt="Proyek 3">
-                <h3>Branding Kit</h3>
-                <p>Paket branding kafe dengan logo modern.</p>
-            </div>
+    <section id="contact">
+        <h2>Kontak</h2>
+        <div class="contact-info">
+            <p>Email: <a href="mailto:maxfaisal@example.com">maxfaisal@example.com</a></p>
+            <p>LinkedIn: <a href="https://linkedin.com/in/maxfaisal" target="_blank">linkedin.com/in/maxfaisal</a></p>
+            <p>GitHub: <a href="https://github.com/maxfaisal" target="_blank">github.com/maxfaisal</a></p>
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <h2 data-aos="fade-up" data-aos-duration="800">Hubungi Saya!</h2>
-        <form id="contact-form">
-            <input type="text" placeholder="Nama" required data-aos="fade-right" data-aos-duration="800">
-            <input type="email" placeholder="Email" required data-aos="fade-right" data-aos-duration="800" data-aos-delay="100">
-            <textarea placeholder="Pesan" required rows="3" data-aos="fade-right" data-aos-duration="800" data-aos-delay="200"></textarea>
-            <button type="submit" data-aos="fade-up" data-aos-duration="800" data-aos-delay="300">Kirim!</button>
-        </form>
-    </section>
-
-    <!-- Footer -->
-    <footer data-aos="fade-up" data-aos-duration="800" data-aos-once="true">
-        <p>© 2025 Max Faisal Bahreizy. Dibuat dengan vibe oranye!</p>
-    </footer>
-
-    <!-- AOS JavaScript -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js" onerror="this.src='aos.js'"></script>
     <script>
-        // Inisialisasi AOS
-        if (typeof AOS !== 'undefined') {
-            AOS.init({
-                once: false,
-                duration: 800,
-                easing: 'ease-out',
-                mirror: true,
-            });
-        } else {
-            document.querySelectorAll('[data-aos]').forEach(el => {
-                el.style.opacity = '1';
-                el.style.transform = 'none';
-            });
-        }
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('nav-menu');
 
-        // Smooth Scroll
-        document.querySelectorAll('.bottom-nav a').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            hamburger.classList.toggle('active');
+        });
+
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                hamburger.classList.remove('active');
+            });
+        });
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                const targetId = this.getAttribute('href').substring(1);
-                const targetElement = document.getElementById(targetId);
-                window.scrollTo({
-                    top: targetElement.offsetTop - 20,
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
                     behavior: 'smooth'
                 });
-                document.querySelectorAll('.bottom-nav a').forEach(link => link.classList.remove('active'));
-                this.classList.add('active');
-            });
-        });
-
-        // Form Submission
-        document.getElementById('contact-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Pesan terkirim! Max akan segera balas!');
-            this.reset();
-        });
-
-        // Ripple Effect
-        document.querySelectorAll('.cta-button, .contact button').forEach(button => {
-            button.addEventListener('click', function(e) {
-                const ripple = document.createElement('span');
-                ripple.classList.add('ripple');
-                const rect = this.getBoundingClientRect();
-                const size = Math.max(rect.width, rect.height);
-                const x = e.clientX - rect.left - size / 2;
-                const y = e.clientY - rect.top - size / 2;
-
-                ripple.style.width = ripple.style.height = `${size}px`;
-                ripple.style.left = `${x}px`;
-                ripple.style.top = `${y}px`;
-                this.appendChild(ripple);
-
-                setTimeout(() => ripple.remove(), 600);
-            });
-        });
-
-        // Active Link on Scroll
-        window.addEventListener('scroll', () => {
-            const sections = document.querySelectorAll('section');
-            const navLinks = document.querySelectorAll('.bottom-nav a');
-            let current = '';
-
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop - 60;
-                if (scrollY >= sectionTop) {
-                    current = section.getAttribute('id');
-                }
-            });
-
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href') === `#${current}`) {
-                    link.classList.add('active');
-                }
             });
         });
     </script>

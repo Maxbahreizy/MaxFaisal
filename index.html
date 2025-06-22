@@ -375,18 +375,30 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.5);
             z-index: 1000;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease;
+            animation: float 2s ease-in-out infinite;
+            opacity: 0;
+        }
+
+        .whatsapp-button.visible {
+            opacity: 1;
         }
 
         .whatsapp-button:hover {
-            transform: scale(1.1);
-            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
+            transform: scale(1.15);
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.7);
         }
 
         .whatsapp-button i {
             font-size: 24px;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+            100% { transform: translateY(0); }
         }
 
         @media (min-width: 768px) {
@@ -578,7 +590,7 @@
         <h2>Kontak</h2>
         <div class="contact-info">
             <p>Email: <a href="mailto:zaiqfaisal@gmail.com">zaiqfaisal@gmail.com</a></p>
-            <p>LinkedIn: <a href="https://www.linkedin.com/in/max-faisal-bahreizy-b20ab5343?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank">linkedin.com/in/Maxbahreizy</a></p>
+            <p>LinkedIn: <a href="https://www.linkedin.com/in/max-faisal-bahreizy-b20ab5343" target="_blank">linkedin.com/in/Maxbahreizy</a></p>
             <p>GitHub: <a href="https://github.com/Maxbahreizy" target="_blank">github.com/Maxbahreizy</a></p>
         </div>
     </section>
@@ -587,7 +599,7 @@
         <div class="footer-content">
             <div class="footer-tagline">Max Faisal Bahreizy - Innovating the Digital Future</div>
             <div class="footer-social">
-                <a href="https://www.linkedin.com/in/max-faisal-bahreizy-b20ab5343?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://www.linkedin.com/in/max-faisal-bahreizy-b20ab5343" target="_blank"><i class="fab fa-linkedin"></i></a>
                 <a href="https://github.com/Maxbahreizy" target="_blank"><i class="fab fa-github"></i></a>
                 <a href="https://instagram.com/max_bahreizy" target="_blank"><i class="fab fa-instagram"></i></a>
             </div>
@@ -595,7 +607,7 @@
         </div>
     </footer>
 
-    <a href="https://wa.me/6281234567890?text=Halo%20Max,%20saya%20tertarik%20dengan%20portofolio%20Anda!" class="whatsapp-button" data-aos="fade-up" data-aos-once="true" target="_blank">
+    <a href="https://wa.me/6285745363245?text=Halo%20Max,%20saya%20tertarik%20dengan%20portofolio%20Anda!" class="whatsapp-button" data-aos="fade-up" data-aos-once="true" target="_blank">
         <i class="fab fa-whatsapp"></i>
     </a>
 
@@ -638,11 +650,28 @@
 
         // Navbar background on scroll
         const navbar = document.getElementById('navbar');
+        const whatsappButton = document.querySelector('.whatsapp-button');
+        const homeSection = document.getElementById('home');
+        const aboutSection = document.getElementById('about');
+        const contactSection = document.getElementById('contact');
+
         window.addEventListener('scroll', () => {
+            // Navbar scroll effect
             if (window.scrollY > 50) {
                 navbar.classList.add('scrolled');
             } else {
                 navbar.classList.remove('scrolled');
+            }
+
+            // WhatsApp button visibility
+            const homeBottom = homeSection.offsetTop + homeSection.offsetHeight;
+            const contactTop = contactSection.offsetTop;
+            const scrollPosition = window.scrollY + window.innerHeight;
+
+            if (scrollPosition > homeBottom && window.scrollY < contactTop) {
+                whatsappButton.classList.add('visible');
+            } else {
+                whatsappButton.classList.remove('visible');
             }
         });
     </script>

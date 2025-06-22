@@ -8,9 +8,9 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" onerror="this.href='aos.css'">
     <!-- Font Fallback -->
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Rubik:wght@500&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
         * {
-            font-family: 'Poppins', 'Rubik', -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
         }
     </style>
     <style>
@@ -19,106 +19,69 @@
             padding: 0;
             box-sizing: border-box;
             scroll-behavior: smooth;
+            -webkit-tap-highlight-color: transparent;
         }
 
         body {
-            background-color: #fff3e6;
-            color: #333;
-            line-height: 1.6;
-            font-size: 16px;
+            background-color: #fef7e8;
+            color: #222;
+            line-height: 1.5;
+            font-size: 14px;
+            overflow-x: hidden;
         }
 
-        /* Navbar */
-        .navbar {
+        /* Bottom Navigation */
+        .bottom-nav {
             position: fixed;
-            top: 0;
+            bottom: 0;
             width: 100%;
-            background: linear-gradient(45deg, #ff6f00, #ff8f00);
-            padding: 10px 0;
-            z-index: 1000;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-
-        .navbar .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            max-width: 100%;
-            padding: 0 15px;
-        }
-
-        .navbar .logo {
-            font-family: 'Rubik', sans-serif;
-            font-size: 1.4rem;
-            color: #fff;
-            font-weight: 500;
-        }
-
-        .hamburger {
-            display: flex;
-            flex-direction: column;
-            gap: 4px;
-            cursor: pointer;
-        }
-
-        .hamburger span {
-            width: 20px;
-            height: 2px;
             background: #fff;
-            transition: all 0.3s ease;
-        }
-
-        .hamburger.active span:nth-child(1) {
-            transform: rotate(45deg) translate(4px, 4px);
-        }
-
-        .hamburger.active span:nth-child(2) {
-            opacity: 0;
-        }
-
-        .hamburger.active span:nth-child(3) {
-            transform: rotate(-45deg) translate(4px, -4px);
-        }
-
-        .nav-links {
-            display: none;
-            position: absolute;
-            top: 50px;
-            left: 0;
-            width: 100%;
-            background: linear-gradient(45deg, #ff6f00, #ff8f00);
-            flex-direction: column;
-            padding: 15px 0;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        }
-
-        .nav-links.active {
             display: flex;
+            justify-content: space-around;
+            padding: 10px 0;
+            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
         }
 
-        .navbar a {
-            color: #fff;
+        .bottom-nav a {
+            color: #666;
             text-decoration: none;
-            padding: 10px 15px;
-            font-size: 1rem;
-            display: block;
-            transition: background 0.3s ease;
+            font-size: 0.8rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+            transition: color 0.3s ease;
         }
 
-        .navbar a:hover, .navbar a.active {
-            background: rgba(255, 255, 255, 0.2);
-            color: #ffe082;
+        .bottom-nav a.active, .bottom-nav a:hover {
+            color: #ff6f00;
+        }
+
+        .bottom-nav a::before {
+            content: '';
+            display: block;
+            width: 24px;
+            height: 24px;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm0 18a8 8 0 1 1 0-16 8 8 0 0 1 0 16z"/></svg>') no-repeat center/cover;
+            opacity: 0.5;
+        }
+
+        .bottom-nav a.active::before, .bottom-nav a:hover::before {
+            opacity: 1;
         }
 
         /* Hero Section */
         .hero {
-            min-height: 80vh;
+            min-height: 70vh;
             display: flex;
             align-items: center;
             justify-content: center;
             background: linear-gradient(135deg, #ff8f00, #ffb300);
             text-align: center;
             padding: 20px 15px;
+            border-bottom-left-radius: 30px;
+            border-bottom-right-radius: 30px;
         }
 
         .hero-content {
@@ -127,28 +90,46 @@
         }
 
         .hero h1 {
-            font-family: 'Rubik', sans-serif;
-            font-size: 2rem;
+            font-family: 'Inter', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
             color: #fff;
             margin-bottom: 10px;
         }
 
         .hero p {
-            font-size: 1rem;
+            font-size: 0.9rem;
             color: #fff;
             margin-bottom: 20px;
         }
 
         .cta-button {
             display: inline-block;
-            padding: 10px 25px;
+            padding: 12px 30px;
             background: #fff;
             color: #ff6f00;
             font-weight: 600;
             text-decoration: none;
-            border-radius: 20px;
-            font-size: 0.95rem;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.4s ease;
+        }
+
+        .cta-button:hover::before {
+            left: 100%;
         }
 
         .cta-button:hover {
@@ -158,44 +139,45 @@
 
         /* About Section */
         .about {
-            padding: 40px 15px;
+            padding: 30px 15px;
             background: #fff;
             border-radius: 20px;
-            margin: 20px;
+            margin: 15px;
             text-align: center;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
         }
 
         .about h2 {
-            font-family: 'Rubik', sans-serif;
-            font-size: 1.8rem;
+            font-family: 'Inter', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 600;
             color: #ff6f00;
             margin-bottom: 10px;
         }
 
         .about p {
-            font-size: 0.95rem;
-            color: #555;
+            font-size: 0.85rem;
+            color: #444;
         }
 
         /* Skills Section */
         .skills {
-            padding: 40px 15px;
-            background: linear-gradient(135deg, #ffb300, #ff6f00);
+            padding: 30px 15px;
+            background: #fef7e8;
         }
 
         .skills h2 {
             text-align: center;
-            font-family: 'Rubik', sans-serif;
-            font-size: 1.8rem;
-            color: #fff;
-            margin-bottom: 20px;
+            font-family: 'Inter', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #ff6f00;
+            margin-bottom: 15px;
         }
 
         .skill-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 15px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
             max-width: 100%;
             margin: 0 auto;
         }
@@ -203,39 +185,43 @@
         .skill-card {
             background: #fff;
             border-radius: 15px;
-            padding: 15px;
+            padding: 12px;
             text-align: center;
-            transition: transform 0.3s ease;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            touch-action: manipulation;
         }
 
         .skill-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-4px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         }
 
         .skill-card h3 {
-            font-family: 'Rubik', sans-serif;
-            font-size: 1.1rem;
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
             color: #ff6f00;
         }
 
         /* Projects Section */
         .projects {
-            padding: 40px 15px;
-            background: #fff3e6;
+            padding: 30px 15px;
+            background: #fef7e8;
         }
 
         .projects h2 {
             text-align: center;
-            font-family: 'Rubik', sans-serif;
-            font-size: 1.8rem;
+            font-family: 'Inter', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 600;
             color: #ff6f00;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
 
         .project-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 15px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
             max-width: 100%;
             margin: 0 auto;
         }
@@ -244,13 +230,14 @@
             background: #fff;
             border-radius: 15px;
             overflow: hidden;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease;
+            touch-action: manipulation;
         }
 
         .project-card img {
             width: 100%;
-            height: 140px;
+            height: 120px;
             object-fit: cover;
             transition: transform 0.4s ease;
         }
@@ -261,54 +248,58 @@
 
         .project-card h3 {
             padding: 10px;
-            font-family: 'Rubik', sans-serif;
-            font-size: 1.2rem;
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
             color: #ff6f00;
         }
 
         .project-card p {
-            padding: 0 10px 15px;
-            font-size: 0.9rem;
-            color: #555;
+            padding: 0 10px 10px;
+            font-size: 0.8rem;
+            color: #444;
         }
 
         .project-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-4px);
         }
 
         /* Contact Section */
         .contact {
-            padding: 40px 15px;
+            padding: 30px 15px;
             background: linear-gradient(135deg, #ff8f00, #ffb300);
+            border-top-left-radius: 30px;
+            border-top-right-radius: 30px;
             text-align: center;
         }
 
         .contact h2 {
-            font-family: 'Rubik', sans-serif;
-            font-size: 1.8rem;
+            font-family: 'Inter', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 600;
             color: #fff;
-            margin-bottom: 15px;
+            margin-bottom: 10px;
         }
 
         .contact form {
-            max-width: 320px;
+            max-width: 300px;
             margin: 0 auto;
             display: flex;
             flex-direction: column;
-            gap: 10px;
+            gap: 8px;
         }
 
         .contact input, .contact textarea {
             padding: 10px;
             border: none;
             border-radius: 10px;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             background: #fff;
-            color: #333;
+            color: #222;
         }
 
         .contact input:focus, .contact textarea:focus {
-            box-shadow: 0 0 8px rgba(255, 111, 0, 0.3);
+            box-shadow: 0 0 6px rgba(255, 111, 0, 0.3);
             outline: none;
         }
 
@@ -320,7 +311,7 @@
             border: none;
             border-radius: 10px;
             cursor: pointer;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             transition: transform 0.3s ease;
         }
 
@@ -331,64 +322,69 @@
 
         /* Footer */
         footer {
-            background: #333;
+            background: #222;
             color: #fff;
             text-align: center;
-            padding: 15px;
+            padding: 10px;
+            margin-bottom: 60px; /* Space for bottom nav */
         }
 
         footer p {
-            font-size: 0.85rem;
+            font-size: 0.8rem;
         }
 
         /* Desktop Adjustments */
         @media (min-width: 768px) {
-            .hamburger {
+            body {
+                font-size: 16px;
+            }
+
+            .bottom-nav {
                 display: none;
             }
 
-            .nav-links {
-                display: flex;
-                position: static;
-                background: none;
-                flex-direction: row;
-                padding: 0;
-                box-shadow: none;
-            }
-
-            .navbar a {
-                padding: 0 10px;
-                margin: 0 5px;
-            }
-
             .hero h1 {
-                font-size: 2.5rem;
+                font-size: 2.2rem;
             }
 
             .hero p {
-                font-size: 1.1rem;
+                font-size: 1rem;
+            }
+
+            .about h2, .skills h2, .projects h2, .contact h2 {
+                font-size: 1.8rem;
             }
 
             .skill-grid, .project-grid {
-                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                flex-direction: row;
+                flex-wrap: wrap;
+                gap: 15px;
+            }
+
+            .skill-card, .project-card {
+                flex: 1 1 calc(50% - 15px);
             }
 
             .contact form {
                 max-width: 400px;
             }
+
+            footer {
+                margin-bottom: 0;
+            }
         }
 
         @media (min-width: 1024px) {
             .hero h1 {
-                font-size: 3rem;
+                font-size: 2.5rem;
+            }
+
+            .skill-card, .project-card {
+                flex: 1 1 calc(33.33% - 15px);
             }
 
             .about, .skills, .projects, .contact {
-                padding: 60px 20px;
-            }
-
-            .skill-grid, .project-grid {
-                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                padding: 40px 20px;
             }
         }
 
@@ -411,30 +407,20 @@
     </style>
 </head>
 <body>
-    <!-- Navbar -->
-    <nav class="navbar">
-        <div class="container">
-            <div class="logo">Max Faisal Bahreizy</div>
-            <div class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-            <div class="nav-links">
-                <a href="#home">Beranda</a>
-                <a href="#about">Tentang</a>
-                <a href="#skills">Keahlian</a>
-                <a href="#projects">Proyek</a>
-                <a href="#contact">Kontak</a>
-            </div>
-        </div>
+    <!-- Bottom Navigation -->
+    <nav class="bottom-nav">
+        <a href="#home" class="active">Beranda</a>
+        <a href="#about">Tentang</a>
+        <a href="#skills">Keahlian</a>
+        <a href="#projects">Proyek</a>
+        <a href="#contact">Kontak</a>
     </nav>
 
     <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="hero-content" data-aos="fade-up" data-aos-duration="800">
             <h1>Halo, Saya Max!</h1>
-            <p>Kreator oranye yang siap bikin ide Anda hidup dengan desain energik!</p>
+            <p>Keren, energik, dan siap wujudkan ide Anda dengan desain oranye!</p>
             <a href="#contact" class="cta-button">Ayo Kolaborasi!</a>
         </div>
     </section>
@@ -442,7 +428,7 @@
     <!-- About Section -->
     <section id="about" class="about" data-aos="fade-up" data-aos-duration="800">
         <h2>Tentang Saya</h2>
-        <p>Saya Max Faisal Bahreizy, 25 tahun, dari Indonesia. Fokus saya adalah UI/UX, front-end, dan desain grafis. Dengan semangat oranye, saya ciptakan pengalaman digital yang fun dan impactful!</p>
+        <p>Saya Max Faisal Bahreizy, 25 tahun, kreator asal Indonesia. Spesialis UI/UX, front-end, dan desain grafis. Dengan vibe oranye, saya bikin pengalaman digital yang seru!</p>
     </section>
 
     <!-- Skills Section -->
@@ -469,17 +455,17 @@
         <h2 data-aos="fade-up" data-aos-duration="800">Proyek Saya</h2>
         <div class="project-grid">
             <div class="project-card" data-aos="fade-right" data-aos-duration="800">
-                <img src="https://via.placeholder.com/300x140?text=Proyek+1" alt="Proyek 1">
+                <img src="https://via.placeholder.com/300x120?text=Proyek+1" alt="Proyek 1">
                 <h3>Website Startup</h3>
-                <p>Website bold untuk startup lokal dengan tema oranye.</p>
+                <p>Website bold untuk startup dengan tema oranye.</p>
             </div>
             <div class="project-card" data-aos="fade-right" data-aos-duration="800" data-aos-delay="100">
-                <img src="https://via.placeholder.com/300x140?text=Proyek+2" alt="Proyek 2">
+                <img src="https://via.placeholder.com/300x120?text=Proyek+2" alt="Proyek 2">
                 <h3>Mobile App UI</h3>
-                <p>Desain UI aplikasi makanan dengan vibe energik.</p>
+                <p>UI aplikasi makanan dengan vibe energik.</p>
             </div>
             <div class="project-card" data-aos="fade-right" data-aos-duration="800" data-aos-delay="200">
-                <img src="https://via.placeholder.com/300x140?text=Proyek+3" alt="Proyek 3">
+                <img src="https://via.placeholder.com/300x120?text=Proyek+3" alt="Proyek 3">
                 <h3>Branding Kit</h3>
                 <p>Paket branding kafe dengan logo modern.</p>
             </div>
@@ -499,7 +485,7 @@
 
     <!-- Footer -->
     <footer data-aos="fade-up" data-aos-duration="800" data-aos-once="true">
-        <p>© 2025 Max Faisal Bahreizy. Dibuat dengan semangat oranye!</p>
+        <p>© 2025 Max Faisal Bahreizy. Dibuat dengan vibe oranye!</p>
     </footer>
 
     <!-- AOS JavaScript -->
@@ -521,24 +507,18 @@
         }
 
         // Smooth Scroll
-        document.querySelectorAll('.navbar a').forEach(anchor => {
+        document.querySelectorAll('.bottom-nav a').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
                 const targetId = this.getAttribute('href').substring(1);
                 const targetElement = document.getElementById(targetId);
                 window.scrollTo({
-                    top: targetElement.offsetTop - 50,
+                    top: targetElement.offsetTop - 20,
                     behavior: 'smooth'
                 });
-                document.querySelector('.nav-links').classList.remove('active');
-                document.querySelector('.hamburger').classList.remove('active');
+                document.querySelectorAll('.bottom-nav a').forEach(link => link.classList.remove('active'));
+                this.classList.add('active');
             });
-        });
-
-        // Hamburger Menu
-        document.querySelector('.hamburger').addEventListener('click', () => {
-            document.querySelector('.nav-links').classList.toggle('active');
-            document.querySelector('.hamburger').classList.toggle('active');
         });
 
         // Form Submission
@@ -567,10 +547,10 @@
             });
         });
 
-        // Active Link
+        // Active Link on Scroll
         window.addEventListener('scroll', () => {
             const sections = document.querySelectorAll('section');
-            const navLinks = document.querySelectorAll('.navbar a');
+            const navLinks = document.querySelectorAll('.bottom-nav a');
             let current = '';
 
             sections.forEach(section => {

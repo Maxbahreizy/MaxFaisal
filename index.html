@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portofolio Saya</title>
+    <!-- AOS CSS CDN -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -69,15 +71,12 @@
         .hero h1 {
             font-size: 3.5rem;
             margin-bottom: 20px;
-            animation: fadeInUp 1s ease-out;
         }
 
         .hero p {
             font-size: 1.2rem;
             max-width: 600px;
             margin: 0 auto 30px;
-            animation: fadeInUp 1s ease-out 0.3s;
-            animation-fill-mode: backwards;
         }
 
         .cta-button {
@@ -216,18 +215,6 @@
             padding: 20px;
         }
 
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
         /* Responsive Design */
         @media (max-width: 768px) {
             .hero h1 {
@@ -256,7 +243,7 @@
 
     <!-- Hero Section -->
     <section id="home" class="hero">
-        <div>
+        <div data-aos="fade-up" data-aos-duration="1000">
             <h1>Selamat Datang di Portofolio Saya</h1>
             <p>Saya adalah seorang profesional kreatif yang bersemangat untuk menghadirkan solusi inovatif dan desain menarik.</p>
             <a href="#contact" class="cta-button">Hubungi Saya</a>
@@ -264,26 +251,26 @@
     </section>
 
     <!-- About Section -->
-    <section id="about" class="about">
+    <section id="about" class="about" data-aos="fade-up" data-aos-duration="1000">
         <h2>Tentang Saya</h2>
         <p>Saya seorang pengembang dan desainer dengan pengalaman lebih dari 5 tahun di bidang teknologi dan kreativitas. Saya berspesialisasi dalam pengembangan web, UI/UX, dan manajemen proyek. Misi saya adalah menciptakan pengalaman digital yang intuitif dan menarik.</p>
     </section>
 
     <!-- Projects Section -->
     <section id="projects" class="projects">
-        <h2>Proyek Saya</h2>
+        <h2 data-aos="fade-up" data-aos-duration="1000">Proyek Saya</h2>
         <div class="project-grid">
-            <div class="project-card">
+            <div class="project-card" data-aos="zoom-in" data-aos-duration="1000">
                 <img src="https://via.placeholder.com/300x200" alt="Proyek 1">
                 <h3>Proyek 1</h3>
                 <p>Deskripsi singkat tentang proyek pertama yang menarik dan inovatif.</p>
             </div>
-            <div class="project-card">
+            <div class="project-card" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="200">
                 <img src="https://via.placeholder.com/300x200" alt="Proyek 2">
                 <h3>Proyek 2</h3>
                 <p>Deskripsi singkat tentang proyek kedua yang menunjukkan keahlian saya.</p>
             </div>
-            <div class="project-card">
+            <div class="project-card" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="400">
                 <img src="https://via.placeholder.com/300x200" alt="Proyek 3">
                 <h3>Proyek 3</h3>
                 <p>Deskripsi singkat tentang proyek ketiga dengan desain modern.</p>
@@ -292,22 +279,31 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="contact">
+    <section id="contact" class="contact" data-aos="fade-up" data-aos-duration="1000">
         <h2>Hubungi Saya</h2>
         <form id="contact-form">
-            <input type="text" placeholder="Nama" required>
-            <input type="email" placeholder="Email" required>
-            <textarea placeholder="Pesan" rows="5" required></textarea>
-            <button type="submit">Kirim Pesan</button>
+            <input type="text" placeholder="Nama" required data-aos="fade-right" data-aos-duration="1000">
+            <input type="email" placeholder="Email" required data-aos="fade-right" data-aos-duration="1000" data-aos-delay="200">
+            <textarea placeholder="Pesan" rows="5" required data-aos="fade-right" data-aos-duration="1000" data-aos-delay="400"></textarea>
+            <button type="submit" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="600">Kirim Pesan</button>
         </form>
     </section>
 
     <!-- Footer -->
-    <footer>
-        <p>&copy; 2025 Portofolio Saya. Semua hak dilindungi.</p>
+    <footer data-aos="fade-up" data-aos-duration="1000">
+        <p>© 2025 Portofolio Saya. Semua hak dilindungi.</p>
     </footer>
 
+    <!-- AOS JavaScript CDN -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
+        // Inisialisasi AOS
+        AOS.init({
+            once: false, // Animasi akan dipicu berulang kali setiap elemen masuk viewport
+            duration: 1000, // Durasi animasi default
+            easing: 'ease-in-out', // Efek easing untuk animasi halus
+        });
+
         // Smooth Scroll untuk Navigasi
         document.querySelectorAll('.navbar a').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
@@ -336,23 +332,6 @@
             e.preventDefault();
             alert('Pesan telah dikirim! Terima kasih atas minat Anda.');
             this.reset();
-        });
-
-        // Animasi saat scroll ke elemen
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = 1;
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, { threshold: 0.1 });
-
-        document.querySelectorAll('.about, .projects, .contact').forEach(section => {
-            section.style.opacity = 0;
-            section.style.transform = 'translateY(20px)';
-            section.style.transition = 'opacity 0.5s, transform 0.5s';
-            observer.observe(section);
         });
     </script>
 </body>

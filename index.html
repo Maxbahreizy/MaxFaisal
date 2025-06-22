@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portofolio Max Faisal Bahreizy</title>
-    <!-- AOS CSS dengan Fallback Lokal -->
+    <!-- AOS CSS -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" onerror="this.href='aos.css'">
-    <!-- Google Fonts dengan Fallback Sistem -->
+    <!-- Font Fallback -->
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&family=Rubik:wght@400;600&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Rubik:wght@500&display=swap');
         * {
             font-family: 'Poppins', 'Rubik', -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
         }
@@ -23,9 +23,9 @@
 
         body {
             background-color: #fff3e6;
-            color: #2d2d2d;
+            color: #333;
             line-height: 1.6;
-            min-height: 100vh;
+            font-size: 16px;
         }
 
         /* Navbar */
@@ -34,70 +34,35 @@
             top: 0;
             width: 100%;
             background: linear-gradient(45deg, #ff6f00, #ff8f00);
-            padding: 12px 0;
+            padding: 10px 0;
             z-index: 1000;
-            transition: transform 0.3s ease;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
-
-        .navbar.hidden {
-            transform: translateY(-100%);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
 
         .navbar .container {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            max-width: 1200px;
-            margin: 0 auto;
+            max-width: 100%;
             padding: 0 15px;
         }
 
         .navbar .logo {
             font-family: 'Rubik', sans-serif;
-            font-size: 1.6rem;
+            font-size: 1.4rem;
             color: #fff;
-            font-weight: 600;
+            font-weight: 500;
         }
 
-        .navbar a {
-            color: #fff;
-            text-decoration: none;
-            margin: 0 10px;
-            font-size: 1rem;
-            position: relative;
-            transition: color 0.3s ease;
-        }
-
-        .navbar a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            background: #ffe082;
-            bottom: -4px;
-            left: 0;
-            transition: width 0.3s ease;
-        }
-
-        .navbar a:hover::after, .navbar a.active::after {
-            width: 100%;
-        }
-
-        .navbar a:hover, .navbar a.active {
-            color: #ffe082;
-        }
-
-        /* Hamburger Menu */
         .hamburger {
-            display: none;
+            display: flex;
             flex-direction: column;
-            cursor: pointer;
             gap: 4px;
+            cursor: pointer;
         }
 
         .hamburger span {
-            width: 22px;
+            width: 20px;
             height: 2px;
             background: #fff;
             transition: all 0.3s ease;
@@ -112,108 +77,126 @@
         }
 
         .hamburger.active span:nth-child(3) {
-            transform: rotate(-45deg) translate(5px, -5px);
+            transform: rotate(-45deg) translate(4px, -4px);
         }
 
         .nav-links {
+            display: none;
+            position: absolute;
+            top: 50px;
+            left: 0;
+            width: 100%;
+            background: linear-gradient(45deg, #ff6f00, #ff8f00);
+            flex-direction: column;
+            padding: 15px 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .nav-links.active {
             display: flex;
-            align-items: center;
+        }
+
+        .navbar a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 15px;
+            font-size: 1rem;
+            display: block;
+            transition: background 0.3s ease;
+        }
+
+        .navbar a:hover, .navbar a.active {
+            background: rgba(255, 255, 255, 0.2);
+            color: #ffe082;
         }
 
         /* Hero Section */
         .hero {
-            min-height: 100vh;
+            min-height: 80vh;
             display: flex;
             align-items: center;
             justify-content: center;
             background: linear-gradient(135deg, #ff8f00, #ffb300);
             text-align: center;
-            padding: 20px;
-            position: relative;
-            overflow: hidden;
+            padding: 20px 15px;
         }
 
         .hero-content {
-            max-width: 700px;
-            opacity: 1; /* Pastikan konten terlihat */
+            max-width: 100%;
+            opacity: 1;
         }
 
         .hero h1 {
             font-family: 'Rubik', sans-serif;
-            font-size: 3rem;
+            font-size: 2rem;
             color: #fff;
-            margin-bottom: 15px;
+            margin-bottom: 10px;
         }
 
         .hero p {
-            font-size: 1.1rem;
+            font-size: 1rem;
             color: #fff;
-            margin-bottom: 25px;
+            margin-bottom: 20px;
         }
 
         .cta-button {
             display: inline-block;
-            padding: 12px 30px;
+            padding: 10px 25px;
             background: #fff;
             color: #ff6f00;
-            font-weight: 500;
+            font-weight: 600;
             text-decoration: none;
-            border-radius: 25px;
-            font-size: 1rem;
+            border-radius: 20px;
+            font-size: 0.95rem;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         .cta-button:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+            transform: translateY(-3px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
         }
 
         /* About Section */
         .about {
-            padding: 60px 15px;
-            max-width: 1200px;
-            margin: 0 auto;
-            text-align: center;
+            padding: 40px 15px;
             background: #fff;
-            border-radius: 25px;
-            margin-top: -30px;
-            position: relative;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+            border-radius: 20px;
+            margin: 20px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
         }
 
         .about h2 {
             font-family: 'Rubik', sans-serif;
-            font-size: 2.2rem;
+            font-size: 1.8rem;
             color: #ff6f00;
-            margin-bottom: 15px;
+            margin-bottom: 10px;
         }
 
         .about p {
-            max-width: 600px;
-            margin: 0 auto;
-            font-size: 1rem;
-            color: #4a4a4a;
+            font-size: 0.95rem;
+            color: #555;
         }
 
         /* Skills Section */
         .skills {
-            padding: 60px 15px;
+            padding: 40px 15px;
             background: linear-gradient(135deg, #ffb300, #ff6f00);
         }
 
         .skills h2 {
             text-align: center;
             font-family: 'Rubik', sans-serif;
-            font-size: 2.2rem;
+            font-size: 1.8rem;
             color: #fff;
-            margin-bottom: 30px;
+            margin-bottom: 20px;
         }
 
         .skill-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            grid-template-columns: 1fr;
             gap: 15px;
-            max-width: 1200px;
+            max-width: 100%;
             margin: 0 auto;
         }
 
@@ -226,40 +209,40 @@
         }
 
         .skill-card:hover {
-            transform: translateY(-6px) rotate(1deg);
+            transform: translateY(-5px);
         }
 
         .skill-card h3 {
             font-family: 'Rubik', sans-serif;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             color: #ff6f00;
         }
 
         /* Projects Section */
         .projects {
-            padding: 60px 15px;
+            padding: 40px 15px;
             background: #fff3e6;
         }
 
         .projects h2 {
             text-align: center;
             font-family: 'Rubik', sans-serif;
-            font-size: 2.2rem;
+            font-size: 1.8rem;
             color: #ff6f00;
-            margin-bottom: 30px;
+            margin-bottom: 20px;
         }
 
         .project-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            max-width: 1200px;
+            grid-template-columns: 1fr;
+            gap: 15px;
+            max-width: 100%;
             margin: 0 auto;
         }
 
         .project-card {
             background: #fff;
-            border-radius: 20px;
+            border-radius: 15px;
             overflow: hidden;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease;
@@ -267,66 +250,65 @@
 
         .project-card img {
             width: 100%;
-            height: 160px;
+            height: 140px;
             object-fit: cover;
-            transition: transform 0.5s ease;
+            transition: transform 0.4s ease;
         }
 
         .project-card:hover img {
-            transform: scale(1.1);
+            transform: scale(1.05);
         }
 
         .project-card h3 {
-            padding: 12px;
+            padding: 10px;
             font-family: 'Rubik', sans-serif;
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             color: #ff6f00;
         }
 
         .project-card p {
-            padding: 0 12px 15px;
+            padding: 0 10px 15px;
             font-size: 0.9rem;
-            color: #4a4a4a;
+            color: #555;
         }
 
         .project-card:hover {
-            transform: translateY(-8px);
+            transform: translateY(-5px);
         }
 
         /* Contact Section */
         .contact {
-            padding: 60px 15px;
-            text-align: center;
+            padding: 40px 15px;
             background: linear-gradient(135deg, #ff8f00, #ffb300);
+            text-align: center;
         }
 
         .contact h2 {
             font-family: 'Rubik', sans-serif;
-            font-size: 2.2rem;
+            font-size: 1.8rem;
             color: #fff;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
 
         .contact form {
-            max-width: 450px;
+            max-width: 320px;
             margin: 0 auto;
             display: flex;
             flex-direction: column;
-            gap: 12px;
+            gap: 10px;
         }
 
         .contact input, .contact textarea {
             padding: 10px;
             border: none;
-            border-radius: 12px;
-            font-size: 0.95rem;
+            border-radius: 10px;
+            font-size: 0.9rem;
             background: #fff;
-            color: #2d2d2d;
-            transition: box-shadow 0.3s ease;
+            color: #333;
         }
 
         .contact input:focus, .contact textarea:focus {
-            box-shadow: 0 0 10px rgba(255, 111, 0, 0.3);
+            box-shadow: 0 0 8px rgba(255, 111, 0, 0.3);
             outline: none;
         }
 
@@ -334,100 +316,79 @@
             padding: 10px;
             background: #fff;
             color: #ff6f00;
-            font-weight: 500;
+            font-weight: 600;
             border: none;
-            border-radius: 12px;
+            border-radius: 10px;
             cursor: pointer;
-            font-size: 1rem;
+            font-size: 0.95rem;
             transition: transform 0.3s ease;
         }
 
         .contact button:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+            transform: translateY(-3px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
         }
 
         /* Footer */
         footer {
-            background: #2d2d2d;
+            background: #333;
             color: #fff;
             text-align: center;
             padding: 15px;
         }
 
         footer p {
-            font-size: 0.9rem;
+            font-size: 0.85rem;
         }
 
-        /* Mobile-Friendly */
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2rem;
-            }
-
-            .hero p {
-                font-size: 0.95rem;
-            }
-
+        /* Desktop Adjustments */
+        @media (min-width: 768px) {
             .hamburger {
-                display: flex;
+                display: none;
             }
 
             .nav-links {
-                display: none;
-                position: absolute;
-                top: 50px;
-                left: 0;
-                width: 100%;
-                background: linear-gradient(45deg, #ff6f00, #ff8f00);
-                flex-direction: column;
-                padding: 15px 0;
-                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            }
-
-            .nav-links.active {
                 display: flex;
+                position: static;
+                background: none;
+                flex-direction: row;
+                padding: 0;
+                box-shadow: none;
             }
 
             .navbar a {
-                margin: 8px 0;
-                font-size: 1.1rem;
-            }
-
-            .about h2, .skills h2, .projects h2, .contact h2 {
-                font-size: 1.8rem;
-            }
-
-            .project-grid, .skill-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .contact form {
-                max-width: 350px;
                 padding: 0 10px;
+                margin: 0 5px;
             }
-        }
 
-        @media (max-width: 480px) {
             .hero h1 {
-                font-size: 1.6rem;
+                font-size: 2.5rem;
             }
 
             .hero p {
-                font-size: 0.9rem;
+                font-size: 1.1rem;
             }
 
-            .cta-button {
-                padding: 10px 20px;
-                font-size: 0.9rem;
+            .skill-grid, .project-grid {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            }
+
+            .contact form {
+                max-width: 400px;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .hero h1 {
+                font-size: 3rem;
             }
 
             .about, .skills, .projects, .contact {
-                padding: 40px 10px;
+                padding: 60px 20px;
             }
 
-            .about p {
-                font-size: 0.9rem;
+            .skill-grid, .project-grid {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             }
         }
 
@@ -471,33 +432,33 @@
 
     <!-- Hero Section -->
     <section id="home" class="hero">
-        <div class="hero-content" data-aos="fade-up" data-aos-duration="1000">
-            <h1>Halo, Saya Max Faisal Bahreizy!</h1>
-            <p>Kreator energik yang siap menghidupkan ide Anda dengan desain oranye penuh semangat!</p>
-            <a href="#contact" class="cta-button">Kerja Bareng Yuk!</a>
+        <div class="hero-content" data-aos="fade-up" data-aos-duration="800">
+            <h1>Halo, Saya Max!</h1>
+            <p>Kreator oranye yang siap bikin ide Anda hidup dengan desain energik!</p>
+            <a href="#contact" class="cta-button">Ayo Kolaborasi!</a>
         </div>
     </section>
 
     <!-- About Section -->
-    <section id="about" class="about" data-aos="fade-up" data-aos-duration="1000">
+    <section id="about" class="about" data-aos="fade-up" data-aos-duration="800">
         <h2>Tentang Saya</h2>
-        <p>Saya Max Faisal Bahreizy, kreator berusia 25 tahun dari Indonesia. Spesialisasi saya adalah UI/UX, front-end development, dan desain grafis. Dengan energi oranye, saya ciptakan pengalaman digital yang fun dan impactful!</p>
+        <p>Saya Max Faisal Bahreizy, 25 tahun, dari Indonesia. Fokus saya adalah UI/UX, front-end, dan desain grafis. Dengan semangat oranye, saya ciptakan pengalaman digital yang fun dan impactful!</p>
     </section>
 
     <!-- Skills Section -->
     <section id="skills" class="skills">
-        <h2 data-aos="fade-up" data-aos-duration="1000">Keahlian Saya</h2>
+        <h2 data-aos="fade-up" data-aos-duration="800">Keahlian Saya</h2>
         <div class="skill-grid">
-            <div class="skill-card" data-aos="zoom-in" data-aos-duration="1000">
+            <div class="skill-card" data-aos="zoom-in" data-aos-duration="800">
                 <h3>UI/UX Design</h3>
             </div>
-            <div class="skill-card" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="200">
+            <div class="skill-card" data-aos="zoom-in" data-aos-duration="800" data-aos-delay="100">
                 <h3>Front-End Dev</h3>
             </div>
-            <div class="skill-card" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="400">
+            <div class="skill-card" data-aos="zoom-in" data-aos-duration="800" data-aos-delay="200">
                 <h3>Graphic Design</h3>
             </div>
-            <div class="skill-card" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="600">
+            <div class="skill-card" data-aos="zoom-in" data-aos-duration="800" data-aos-delay="300">
                 <h3>Prototyping</h3>
             </div>
         </div>
@@ -505,46 +466,46 @@
 
     <!-- Projects Section -->
     <section id="projects" class="projects">
-        <h2 data-aos="fade-up" data-aos-duration="1000">Proyek Saya</h2>
+        <h2 data-aos="fade-up" data-aos-duration="800">Proyek Saya</h2>
         <div class="project-grid">
-            <div class="project-card" data-aos="fade-right" data-aos-duration="1000">
-                <img src="https://via.placeholder.com/250x160?text=Proyek+1" alt="Proyek 1">
+            <div class="project-card" data-aos="fade-right" data-aos-duration="800">
+                <img src="https://via.placeholder.com/300x140?text=Proyek+1" alt="Proyek 1">
                 <h3>Website Startup</h3>
-                <p>Website interaktif untuk startup lokal dengan desain oranye yang bold.</p>
+                <p>Website bold untuk startup lokal dengan tema oranye.</p>
             </div>
-            <div class="project-card" data-aos="fade-right" data-aos-duration="1000" data-aos-delay="200">
-                <img src="https://via.placeholder.com/250x160?text=Proyek+2" alt="Proyek 2">
+            <div class="project-card" data-aos="fade-right" data-aos-duration="800" data-aos-delay="100">
+                <img src="https://via.placeholder.com/300x140?text=Proyek+2" alt="Proyek 2">
                 <h3>Mobile App UI</h3>
-                <p>Desain UI aplikasi pemesanan makanan dengan tema energik.</p>
+                <p>Desain UI aplikasi makanan dengan vibe energik.</p>
             </div>
-            <div class="project-card" data-aos="fade-right" data-aos-duration="1000" data-aos-delay="400">
-                <img src="https://via.placeholder.com/250x160?text=Proyek+3" alt="Proyek 3">
+            <div class="project-card" data-aos="fade-right" data-aos-duration="800" data-aos-delay="200">
+                <img src="https://via.placeholder.com/300x140?text=Proyek+3" alt="Proyek 3">
                 <h3>Branding Kit</h3>
-                <p>Paket branding untuk kafe dengan logo dan desain grafis modern.</p>
+                <p>Paket branding kafe dengan logo modern.</p>
             </div>
         </div>
     </section>
 
     <!-- Contact Section -->
     <section id="contact" class="contact">
-        <h2 data-aos="fade-up" data-aos-duration="1000">Hubungi Saya!</h2>
+        <h2 data-aos="fade-up" data-aos-duration="800">Hubungi Saya!</h2>
         <form id="contact-form">
-            <input type="text" placeholder="Nama" required data-aos="fade-right" data-aos-duration="1000">
-            <input type="email" placeholder="Email" required data-aos="fade-right" data-aos-duration="1000" data-aos-delay="200">
-            <textarea placeholder="Pesan" required rows="4" data-aos="fade-right" data-aos-duration="1000" data-aos-delay="400"></textarea>
-            <button type="submit" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="600">Kirim Pesan!</button>
+            <input type="text" placeholder="Nama" required data-aos="fade-right" data-aos-duration="800">
+            <input type="email" placeholder="Email" required data-aos="fade-right" data-aos-duration="800" data-aos-delay="100">
+            <textarea placeholder="Pesan" required rows="3" data-aos="fade-right" data-aos-duration="800" data-aos-delay="200"></textarea>
+            <button type="submit" data-aos="fade-up" data-aos-duration="800" data-aos-delay="300">Kirim!</button>
         </form>
     </section>
 
     <!-- Footer -->
-    <footer data-aos="fade-up" data-aos-duration="1000" data-aos-once="true">
-        <p>© 2025 Max Faisal Bahreizy. Dibuat dengan energi oranye!</p>
+    <footer data-aos="fade-up" data-aos-duration="800" data-aos-once="true">
+        <p>© 2025 Max Faisal Bahreizy. Dibuat dengan semangat oranye!</p>
     </footer>
 
-    <!-- AOS JavaScript dengan Fallback Lokal -->
+    <!-- AOS JavaScript -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js" onerror="this.src='aos.js'"></script>
     <script>
-        // Inisialisasi AOS dengan Fallback
+        // Inisialisasi AOS
         if (typeof AOS !== 'undefined') {
             AOS.init({
                 once: false,
@@ -553,7 +514,6 @@
                 mirror: true,
             });
         } else {
-            // Fallback: Tampilkan elemen tanpa animasi
             document.querySelectorAll('[data-aos]').forEach(el => {
                 el.style.opacity = '1';
                 el.style.transform = 'none';
@@ -567,7 +527,7 @@
                 const targetId = this.getAttribute('href').substring(1);
                 const targetElement = document.getElementById(targetId);
                 window.scrollTo({
-                    top: targetElement.offsetTop - 60,
+                    top: targetElement.offsetTop - 50,
                     behavior: 'smooth'
                 });
                 document.querySelector('.nav-links').classList.remove('active');
@@ -581,23 +541,10 @@
             document.querySelector('.hamburger').classList.toggle('active');
         });
 
-        // Navbar Hide/Show
-        let lastScroll = 0;
-        window.addEventListener('scroll', () => {
-            const navbar = document.querySelector('.navbar');
-            const currentScroll = window.scrollY;
-            if (currentScroll > lastScroll && currentScroll > 80) {
-                navbar.classList.add('hidden');
-            } else {
-                navbar.classList.remove('hidden');
-            }
-            lastScroll = currentScroll;
-        });
-
         // Form Submission
         document.getElementById('contact-form').addEventListener('submit', function(e) {
             e.preventDefault();
-            alert('Pesan terkirim! Max akan segera menghubungi Anda!');
+            alert('Pesan terkirim! Max akan segera balas!');
             this.reset();
         });
 
@@ -627,7 +574,7 @@
             let current = '';
 
             sections.forEach(section => {
-                const sectionTop = section.offsetTop - 100;
+                const sectionTop = section.offsetTop - 60;
                 if (scrollY >= sectionTop) {
                     current = section.getAttribute('id');
                 }
